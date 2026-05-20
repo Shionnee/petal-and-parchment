@@ -53,6 +53,7 @@ export default function BotanistChat({ apiKey, activePlantContext, onClearContex
   const [inputVal, setInputVal] = useState("");
   const [loading, setLoading] = useState(false);
   const chatEndRef = useRef(null);
+  const prevPlantContextIdRef = useRef(null);
 
   // Independent chat memory slots per agent
   const [messagesByAgent, setMessagesByAgent] = useState({
@@ -81,14 +82,21 @@ export default function BotanistChat({ apiKey, activePlantContext, onClearContex
 
   // Dynamic system greeting synchronization when focus plant context shifts
   useEffect(() => {
+    const currentId = activePlantContext?.id || null;
+    if (currentId === prevPlantContextIdRef.current) {
+      return; // Do nothing if context hasn't actually changed
+    }
+    prevPlantContextIdRef.current = currentId;
+
     if (activePlantContext) {
       const plantName = activePlantContext.plantName;
       const condition = activePlantContext.conditionName;
       const score = activePlantContext.healthScore;
       const timestamp = Date.now();
 
-      setMessagesByAgent({
+      setMessagesByAgent(prev => ({
         sage: [
+          ...prev.sage,
           {
             id: `context_sage_${timestamp}`,
             sender: "bot",
@@ -96,6 +104,7 @@ export default function BotanistChat({ apiKey, activePlantContext, onClearContex
           }
         ],
         flora: [
+          ...prev.flora,
           {
             id: `context_flora_${timestamp}`,
             sender: "bot",
@@ -103,19 +112,52 @@ export default function BotanistChat({ apiKey, activePlantContext, onClearContex
           }
         ],
         moss: [
+          ...prev.moss,
           {
             id: `context_moss_${timestamp}`,
             sender: "bot",
             text: `Your lovely **${plantName}** is in focus, dealing with **${condition}**.\n\nLet's map out the perfect lighting angles and style it with ideal companion plants to make it a gorgeous centerpiece. How shall we design its living space?`
           }
         ]
-      });
+      }));
     } else {
-      // Clear context - reset to general botanical council greets
-      setMessagesByAgent({
-        sage: [{ id: "welcome_sage", sender: "bot", text: AGENTS[0].welcome }],
-        flora: [{ id: "welcome_flora", sender: "bot", text: AGENTS[1].welcome }],
-        moss: [{ id: "welcome_moss", sender: "bot", text: AGENTS[2].welcome }]
+      // Non-destructive context clear notice
+      const timestamp = Date.now();
+      setMessagesByAgent(prev => {
+        const hasMessagesSage = prev.sage.length > 1;
+        const hasMessagesFlora = prev.flora.length > 1;
+        const hasMessagesMoss = prev.moss.length > 1;
+
+        if (!hasMessagesSage && !hasMessagesFlora && !hasMessagesMoss) {
+          return prev;
+        }
+
+        return {
+          sage: hasMessagesSage ? [
+            ...prev.sage,
+            {
+              id: `context_clear_sage_${timestamp}`,
+              sender: "bot",
+              text: `Plant context has been cleared. I am ready to answer any general plant care or disease questions!`
+            }
+          ] : prev.sage,
+          flora: hasMessagesFlora ? [
+            ...prev.flora,
+            {
+              id: `context_clear_flora_${timestamp}`,
+              sender: "bot",
+              text: `Plant context has been cleared. Let me know if you need any general advice on soil recipes or propagation!`
+            }
+          ] : prev.flora,
+          moss: hasMessagesMoss ? [
+            ...prev.moss,
+            {
+              id: `context_clear_moss_${timestamp}`,
+              sender: "bot",
+              text: `Plant context has been cleared. Ask me any general questions about container styling or indoor landscaping!`
+            }
+          ] : prev.moss
+        };
       });
     }
   }, [activePlantContext]);

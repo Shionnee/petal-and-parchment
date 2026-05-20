@@ -96,7 +96,40 @@ export default function Scanner({ apiKey, onSaveApiKey, onClearApiKey, onScanCom
     const file = e.target.files[0];
     if (file) {
       setSelectedFile(file);
-      setPreviewUrl(URL.createObjectURL(file));
+      
+      // Create temporary object URL for reading into Image
+      const tempUrl = URL.createObjectURL(file);
+      const img = new Image();
+      img.src = tempUrl;
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+        const maxDimension = 400;
+        let width = img.width;
+        let height = img.height;
+        if (width > height) {
+          if (width > maxDimension) {
+            height = Math.round((height * maxDimension) / width);
+            width = maxDimension;
+          }
+        } else {
+          if (height > maxDimension) {
+            width = Math.round((width * maxDimension) / height);
+            height = maxDimension;
+          }
+        }
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0, width, height);
+        
+        const compressedBase64 = canvas.toDataURL("image/jpeg", 0.75);
+        setPreviewUrl(compressedBase64);
+        URL.revokeObjectURL(tempUrl);
+      };
+      img.onerror = () => {
+        URL.revokeObjectURL(tempUrl);
+      };
+
       stopCamera();
       setShowSandbox(false); // Hide sandbox when a real custom photo is uploaded
     }
@@ -118,7 +151,30 @@ export default function Scanner({ apiKey, onSaveApiKey, onClearApiKey, onScanCom
         if (blob) {
           const file = new File([blob], "plant_capture.jpg", { type: "image/jpeg" });
           setSelectedFile(file);
-          setPreviewUrl(URL.createObjectURL(blob));
+          
+          // Downscale canvas to get compressed base64 directly
+          const maxDimension = 400;
+          const canvas2 = document.createElement("canvas");
+          let width = canvas.width;
+          let height = canvas.height;
+          if (width > height) {
+            if (width > maxDimension) {
+              height = Math.round((height * maxDimension) / width);
+              width = maxDimension;
+            }
+          } else {
+            if (height > maxDimension) {
+              width = Math.round((width * maxDimension) / height);
+              height = maxDimension;
+            }
+          }
+          canvas2.width = width;
+          canvas2.height = height;
+          const ctx2 = canvas2.getContext("2d");
+          ctx2.drawImage(canvas, 0, 0, width, height);
+          
+          const compressedBase64 = canvas2.toDataURL("image/jpeg", 0.75);
+          setPreviewUrl(compressedBase64);
           stopCamera();
           setShowSandbox(false); // Hide sandbox when a photo is captured
         }

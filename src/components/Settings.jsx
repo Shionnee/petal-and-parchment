@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Eye, EyeOff, ShieldCheck, HelpCircle, RefreshCw, Trash2, Info } from "lucide-react";
+import { Eye, EyeOff, ShieldCheck, HelpCircle, RefreshCw, Trash2, Info, Download, Upload } from "lucide-react";
 import { getMockDiagnosis } from "../utils/plantDatabase";
 
-export default function Settings({ apiKey, onSaveApiKey, onClearApiKey, onHydrateGarden, theme, onToggleTheme, layoutMode = "mobile", onToggleLayoutMode }) {
+export default function Settings({ apiKey, onSaveApiKey, onClearApiKey, onHydrateGarden, savedPlants = [], theme, onToggleTheme, layoutMode = "mobile", onToggleLayoutMode }) {
   const [keyInput, setKeyInput] = useState(apiKey || "");
   const [showKey, setShowKey] = useState(false);
   const [successAlert, setSuccessAlert] = useState("");
@@ -36,6 +36,58 @@ export default function Settings({ apiKey, onSaveApiKey, onClearApiKey, onHydrat
     onHydrateGarden([plant1, plant2, plant3]);
     setSuccessAlert("Garden populated with 3 diagnostic plant profiles!");
     setTimeout(() => setSuccessAlert(""), 3000);
+  };
+
+  const handleExport = () => {
+    try {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(savedPlants, null, 2));
+      const downloadAnchor = document.createElement("a");
+      downloadAnchor.setAttribute("href", dataStr);
+      downloadAnchor.setAttribute("download", `petal_parchment_backup_${new Date().toISOString().slice(0, 10)}.json`);
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+      setSuccessAlert("Conservatory archives exported successfully!");
+      setTimeout(() => setSuccessAlert(""), 3000);
+    } catch (e) {
+      console.error(e);
+      alert("Failed to export conservatory archives.");
+    }
+  };
+
+  const handleImport = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      try {
+        const importedData = JSON.parse(event.target.result);
+        if (Array.isArray(importedData)) {
+          const isValid = importedData.every(p => p && p.plantName && p.id);
+          if (isValid) {
+            onHydrateGarden(importedData);
+            setSuccessAlert(`Successfully imported ${importedData.length} plant profiles!`);
+            setTimeout(() => setSuccessAlert(""), 3000);
+          } else {
+            alert("Invalid archive format. Ensure the file contains valid Petal & Parchment plant records.");
+          }
+        } else {
+          alert("Invalid file format. The file must contain a JSON array of plant records.");
+        }
+      } catch (err) {
+        alert("Failed to parse JSON file. Please make sure it's a valid backup file.");
+      }
+    };
+    reader.readAsText(file);
+  };
+
+  const handleReset = () => {
+    if (window.confirm("Are you sure you want to clear your entire conservatory? This will permanently delete all saved plants and diagnostics history!")) {
+      onHydrateGarden([]);
+      setSuccessAlert("Conservatory archives successfully cleared!");
+      setTimeout(() => setSuccessAlert(""), 3000);
+    }
   };
 
   return (
@@ -267,7 +319,7 @@ export default function Settings({ apiKey, onSaveApiKey, onClearApiKey, onHydrat
       >
         <h4 style={{ fontSize: "14px", display: "flex", alignItems: "center", gap: "8px", marginBottom: "10px", color: "var(--primary)" }}>
           <ShieldCheck size={16} />
-          Security & Privacy Node
+          Privacy & Security
         </h4>
         <ul style={{ paddingLeft: "12px", fontSize: "12px", color: "var(--text-sub)", display: "flex", flexDirection: "column", gap: "8px", listStyleType: "none" }}>
           <li style={{ display: "flex", gap: "8px", alignItems: "flex-start" }}>
@@ -285,26 +337,68 @@ export default function Settings({ apiKey, onSaveApiKey, onClearApiKey, onHydrat
         </ul>
       </div>
 
-      {/* 3. DATABASE HYDRATION & UTILITIES */}
+      {/* 3. DATA MANAGEMENT & UTILITIES */}
       <div className="glass-card" style={{ marginBottom: "20px" }}>
-        <h3 style={{ fontSize: "15px", marginBottom: "6px" }}>Database Utilities</h3>
-        <p style={{ fontSize: "12px", marginBottom: "14px" }}>
-          Seed a default medical portfolio in your virtual garden database. Perfect for exploring the care dashboard, diagnostic logs, and conversational chatbot immediately.
+        <h3 style={{ fontSize: "15px", marginBottom: "6px", color: "var(--primary)" }}>Conservatory Data Management</h3>
+        <p style={{ fontSize: "12px", marginBottom: "16px", lineHeight: "1.45", color: "var(--text-sub)" }}>
+          Export your conservatory diary to a backup file, restore from a previous export, or seed simulation profiles.
         </p>
-        <button 
-          className="secondary-btn" 
-          onClick={handleHydrate}
-          style={{ width: "100%", padding: "10px 16px", fontSize: "12.5px", display: "flex", gap: "8px", justifyContent: "center" }}
-        >
-          <RefreshCw size={14} /> Populate Conservatory Archives
-        </button>
+        
+        <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+          <button 
+            className="secondary-btn" 
+            onClick={handleHydrate}
+            style={{ width: "100%", padding: "11px 16px", fontSize: "12.5px", display: "flex", gap: "8px", justifyContent: "center", alignItems: "center" }}
+          >
+            <RefreshCw size={14} /> Populate Simulation Profiles
+          </button>
+          
+          <div style={{ display: "flex", gap: "10px" }}>
+            <button 
+              className="secondary-btn" 
+              onClick={handleExport}
+              style={{ flex: 1, padding: "11px 16px", fontSize: "12.5px", display: "flex", gap: "8px", justifyContent: "center", alignItems: "center", margin: 0 }}
+              title="Download backup file"
+            >
+              <Download size={14} /> Export Backup
+            </button>
+            
+            <label 
+              className="secondary-btn" 
+              style={{ flex: 1, padding: "11px 16px", fontSize: "12.5px", display: "flex", gap: "8px", justifyContent: "center", alignItems: "center", cursor: "pointer", margin: 0 }}
+              title="Restore from backup file"
+            >
+              <Upload size={14} /> Import Backup
+              <input type="file" accept=".json" onChange={handleImport} style={{ display: "none" }} />
+            </label>
+          </div>
+
+          <button 
+            className="secondary-btn" 
+            onClick={handleReset}
+            style={{ 
+              width: "100%", 
+              padding: "11px 16px", 
+              fontSize: "12.5px", 
+              display: "flex", 
+              gap: "8px", 
+              justifyContent: "center", 
+              alignItems: "center",
+              borderColor: "rgba(214, 123, 123, 0.3)",
+              color: "#d67b7b",
+              background: "rgba(214, 123, 123, 0.03)"
+            }}
+          >
+            <Trash2 size={14} /> Clear Conservatory Data
+          </button>
+        </div>
       </div>
 
       {/* 4. APP INFOPANEL */}
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "6px", marginTop: "10px", opacity: 0.5 }}>
         <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "11px", color: "var(--text-muted)" }}>
           <Info size={12} />
-          <span>Petal & Parchment - Journal Node v1.2.0</span>
+          <span>Petal & Parchment - Version 1.2.0</span>
         </div>
         <p style={{ fontSize: "9px", color: "var(--text-muted)" }}>
           Pair-programmed by Google DeepMind Antigravity AI

@@ -199,6 +199,7 @@ export default function App() {
             onSaveApiKey={handleSaveApiKey}
             onClearApiKey={handleClearApiKey}
             onHydrateGarden={handleHydrateGarden}
+            savedPlants={savedPlants}
             theme={theme}
             onToggleTheme={(t) => setTheme(t)}
             layoutMode={layoutMode}

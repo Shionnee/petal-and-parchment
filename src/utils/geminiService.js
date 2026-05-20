@@ -32,9 +32,9 @@ export async function analyzePlantWithGemini(fileOrBlob, apiKey) {
 
   try {
     const genAI = new GoogleGenerativeAI(apiKey);
-    // Use gemini-3.5-flash for speed, multi-modality, and high stability.
+    // Use gemini-1.5-flash for speed, multi-modality, and high stability.
     const model = genAI.getGenerativeModel({ 
-      model: "gemini-3.5-flash",
+      model: "gemini-1.5-flash",
       generationConfig: {
         responseMimeType: "application/json"
       }
@@ -154,7 +154,7 @@ export async function chatWithBotanistAgent(chatHistory, newQuestion, plantConte
 
   try {
     const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({ model: "gemini-3.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
     const plantName = plantContext?.plantName || "houseplant";
     const condition = plantContext?.conditionName || "unknown condition";
@@ -211,7 +211,7 @@ Focus heavily on interior design, companion pairings, light design, aesthetics, 
     } else {
       // Default to Dr. Sage
       systemPrompt = `
-You are Dr. Sage, an expert conversational botanist, houseplant doctor, and empathetic plant pathologist.
+You are Dr. Sage, an expert conversational botanist, houseplant doctor, and empathetic plant pathology.
 You are helping a plant owner identify and cure plant ailments.
 Here is the context of the plant they are currently consulting you about:
 - Plant Species: ${plantName} (${plantContext?.botanicalName || "N/A"})
@@ -232,11 +232,24 @@ Focus heavily on plant pathology, medical treatments, recovery progression, and 
 `;
     }
 
-    // Map history to Gemini's format: { role: 'user' | 'model', parts: [{ text: '...' }] }
-    const formattedHistory = chatHistory.map(msg => ({
-      role: msg.sender === "user" ? "user" : "model",
-      parts: [{ text: msg.text }]
-    }));
+    // Filter valid chat messages and construct alternating roles starting with 'user'
+    const activeHistory = chatHistory.filter(msg => msg && msg.text && msg.text.trim());
+    const formattedHistory = [];
+    for (const msg of activeHistory) {
+      const role = msg.sender === "user" ? "user" : "model";
+      if (formattedHistory.length === 0) {
+        if (role === "user") {
+          formattedHistory.push({ role, parts: [{ text: msg.text }] });
+        }
+      } else {
+        const lastTurn = formattedHistory[formattedHistory.length - 1];
+        if (lastTurn.role === role) {
+          lastTurn.parts[0].text += "\n" + msg.text;
+        } else {
+          formattedHistory.push({ role, parts: [{ text: msg.text }] });
+        }
+      }
+    }
 
     // Start a chat session
     const chat = model.startChat({

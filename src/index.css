@@ -1129,15 +1129,15 @@ button.secondary-btn:active {
 
 /* User speech bubble in premium dark green-charcoal pills */
 .chat-bubble.user {
-  background: var(--bg-nav);
-  color: white;
+  background: var(--text-sub);
+  color: var(--bg-phone);
   border-top-right-radius: 4px;
   align-self: flex-end;
   box-shadow: 0 4px 14px rgba(20, 32, 26, 0.08);
 }
 
 .chat-bubble.user p {
-  color: white;
+  color: var(--bg-phone);
   font-size: 13.5px;
   font-weight: 500;
 }
