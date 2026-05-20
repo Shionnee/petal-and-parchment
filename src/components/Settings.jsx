@@ -280,7 +280,7 @@ export default function Settings({ apiKey, onSaveApiKey, onClearApiKey, onHydrat
           </li>
           <li style={{ display: "flex", gap: "8px", alignItems: "flex-start" }}>
             <span style={{ color: "var(--primary)", marginTop: "2px" }}>✔</span>
-            <span><strong>Git Leak Protection:</strong> Repository exclusions (.gitignore) are actively configured to prevent environment variable files and overrides from ever leaking to public control logs.</span>
+            <span><strong>Private Conservatory Records:</strong> Your plant diagnostics, custom care journals, and botanical histories are kept fully personal, shielded from any external trackers or ad networks.</span>
           </li>
         </ul>
       </div>

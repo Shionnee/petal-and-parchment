@@ -28,7 +28,15 @@ export default function App() {
   };
 
   const [theme, setTheme] = useState(() => getStoredItem("petal_parchment_theme", "verdant_theme", "light"));
-  const [layoutMode, setLayoutMode] = useState(() => getStoredItem("petal_parchment_layout_mode", "verdant_layout_mode", "mobile"));
+  const [layoutMode, setLayoutMode] = useState(() => {
+    const saved = getStoredItem("petal_parchment_layout_mode", "verdant_layout_mode", null);
+    if (saved !== null) return saved;
+    
+    // Auto-detect based on User Agent and viewport screen size
+    const isMobileUA = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+    const isSmallScreen = window.innerWidth < 768;
+    return (isMobileUA || isSmallScreen) ? "mobile" : "webapp";
+  });
   
   // State from localStorage
   const [apiKey, setApiKey] = useState(() => getStoredItem("petal_parchment_gemini_key", "verdant_gemini_key", ""));
@@ -60,9 +68,30 @@ export default function App() {
 
   // Sync layout mode to document element
   useEffect(() => {
-    localStorage.setItem("petal_parchment_layout_mode", layoutMode);
     document.documentElement.setAttribute("data-layout-mode", layoutMode);
   }, [layoutMode]);
+
+  // Handler for explicit layout mode changes (saves user selection to localStorage)
+  const handleToggleLayoutMode = (mode) => {
+    localStorage.setItem("petal_parchment_layout_mode", mode);
+    setLayoutMode(mode);
+  };
+
+  // Auto-detect layout mode on viewport resize if no explicit preference is set
+  useEffect(() => {
+    const savedPreference = localStorage.getItem("petal_parchment_layout_mode") || localStorage.getItem("verdant_layout_mode");
+    
+    if (!savedPreference) {
+      const handleResize = () => {
+        const isSmallScreen = window.innerWidth < 768;
+        const isMobileUA = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+        setLayoutMode((isMobileUA || isSmallScreen) ? "mobile" : "webapp");
+      };
+      
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, []);
 
   // Sync API key to localStorage
   const handleSaveApiKey = (key) => {
@@ -173,7 +202,7 @@ export default function App() {
             theme={theme}
             onToggleTheme={(t) => setTheme(t)}
             layoutMode={layoutMode}
-            onToggleLayoutMode={(l) => setLayoutMode(l)}
+            onToggleLayoutMode={handleToggleLayoutMode}
           />
         );
         
