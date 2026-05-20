@@ -308,11 +308,11 @@ p {
   background: var(--bg-card);
   border: 1px solid var(--border-glass);
   border-radius: 28px; /* High-end iOS rounded cards */
-  padding: 20px;
+  padding: 22px 24px; /* Spacious but fits mobile screens nicely */
   box-shadow: var(--shadow-md);
   transition: transform var(--t-normal), border-color var(--t-normal), box-shadow var(--t-normal);
   position: relative;
-  overflow: hidden;
+  overflow: visible; /* Prevent children (like capsule buttons/shadows) from getting clipped */
 }
 
 .glass-card:hover {
@@ -1491,9 +1491,14 @@ body::before {
 
   /* Make Screen Containers fluid and wide-grid-compatible */
   .webapp-frame .screen-container {
-    padding: 0 0 24px 0; /* Clear bottom margins */
+    padding: 28px 32px 32px 32px !important; /* Elegant spacious desktop margins */
     display: flex;
     flex-direction: column;
+    gap: 24px;
+  }
+
+  .webapp-frame .glass-card {
+    padding: 28px 32px !important; /* Exquisite, luxurious layout spacing for wide screens */
   }
 
   /* Dashboard: Transition horizontal plant carousel into an elegant multi-column grid */

@@ -219,12 +219,12 @@ export default function Settings({ apiKey, onSaveApiKey, onClearApiKey, onHydrat
             </button>
           </div>
 
-          <div style={{ display: "flex", gap: "10px", marginTop: "4px" }}>
+          <div style={{ display: "flex", gap: "10px", marginTop: "12px", marginBottom: "4px" }}>
             {apiKey && (
               <button 
                 className="secondary-btn" 
                 onClick={handleClear}
-                style={{ flex: 1, padding: "10px 16px", fontSize: "12.5px" }}
+                style={{ flex: 1, padding: "12px 24px", fontSize: "13px" }}
               >
                 Clear Key
               </button>
@@ -232,7 +232,7 @@ export default function Settings({ apiKey, onSaveApiKey, onClearApiKey, onHydrat
             <button 
               className="primary-btn" 
               onClick={handleSave}
-              style={{ flex: 2, padding: "10px 16px", fontSize: "12.5px" }}
+              style={{ flex: 2, padding: "12px 24px", fontSize: "13px" }}
             >
               Save Configuration
             </button>
