@@ -34,7 +34,7 @@ export async function analyzePlantWithGemini(fileOrBlob, apiKey) {
     const genAI = new GoogleGenerativeAI(apiKey);
     // Use gemini-1.5-flash for speed, multi-modality, and high stability.
     const model = genAI.getGenerativeModel({ 
-      model: "gemini-1.5-flash",
+      model: "gemini-2.5-flash",
       generationConfig: {
         responseMimeType: "application/json"
       }
