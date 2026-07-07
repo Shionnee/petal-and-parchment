@@ -1,14 +1,14 @@
 # <p align="center"><img src="./public/logo.png" width="128" alt="Petal & Parchment Logo" /><br />Petal & Parchment</p>
 
 <p align="center">
-  <strong>A Cozy, Whimsical Botanical Journal & AI Diagnostics Sanctuary</strong>
+  <strong>A Cozy, Whimsical Botanical Journal & AI Plant Diagnostics Web App</strong>
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite Badge" />
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React Badge" />
-  <img src="https://img.shields.io/badge/Capacitor-119EFF?style=for-the-badge&logo=capacitor&logoColor=white" alt="Capacitor Badge" />
+  <img src="https://img.shields.io/badge/React_19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React Badge" />
   <img src="https://img.shields.io/badge/Gemini_AI-8E75C2?style=for-the-badge&logo=googlegemini&logoColor=white" alt="Gemini AI Badge" />
+  <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel Badge" />
   <img src="https://img.shields.io/badge/License-MIT-yellowgreen?style=for-the-badge" alt="MIT License Badge" />
 </p>
 
@@ -16,75 +16,67 @@
 
 ## 🌸 Welcome to the Conservatory
 
-**Petal & Parchment** is a premium, mobile-first botanical assistant designed like an editorial, cozy vintage journal. Combining nostalgic, handwritten ledger designs with advanced plant pathology AI models, Petal & Parchment helps you track, cultivate, and diagnose your indoor sanctuary with aesthetic elegance and zero friction.
+**Petal & Parchment** is a mobile-first, single-page **web app** for identifying, diagnosing, and caring for your houseplants — styled like a cozy vintage botanical journal. It pairs warm, editorial visuals with Google's Gemini vision models to turn a leaf photo into a full health dossier.
 
-Unlike sterile, generic utility apps, Petal & Parchment wraps your care routines in warm HSL tones, dewy glassmorphism, smooth micro-animations, and a dynamic editorial color theme inspired by soft peony petals, porcelain clay, and deep midnight espresso.
+Everything runs in the browser. Bring your own Gemini API key for live AI analysis, or explore the whole app in a built-in **Simulation Mode** with no key at all.
+
+
 
 ---
 
-## ✨ Whimsical Features
+## ✨ Features
 
-### 🌿 1. Cozy Conservatory Dashboard
-*   **Tactile Health Grid:** A beautiful, responsive card layout showing all your active plants, their customized profiles, and instant health diagnostics.
-*   **Theme-Aware Contrast Badges:** Plant health percentage pills automatically adapt. Renders a delicate warm off-white in light mode, and a soft, low-opacity translucent glass badge in dark mode to ensure beautiful, high-contrast readability of your garden's status.
+The app is organized into a bottom-nav set of screens ([`src/App.jsx`](src/App.jsx)):
 
-### 📔 2. Care Tasks Journal (Dynamic Lined Notebook)
-*   **Analog Lined Aesthetic:** Daily care checklists are laid out on a gorgeous, vintage lined notepad featuring a vertical pink margin rule and subtle, dashed guides.
-*   **Zero-Glare Dark Mode:** When toggled to dark mode, the notebook dynamically transitions from a morning porcelain cream paper to a deep, luxurious **Midnight Espresso Diary Page** (`rgba(41, 35, 30, 0.95)`), protecting your eyes during nightly checks.
-*   **Ritual Tracking:** Watch your progress progress bar fill with a shimmering, warm rose-gold gradient as you complete your daily watering, pruning, and leaf-wiping.
+### 🏡 Home — Conservatory Dashboard
+Your saved "garden": a responsive grid of plant cards, each opening a detailed **Botanical Dossier** (health gauge, pathologist assessment, symptoms/causes, and a step-by-step treatment plan, plus a Care Guide tab). Scans are saved here automatically. Includes a light/dark theme toggle.
 
-### 📸 3. Real-Time Leaf Scanner & Sandbox Simulation
-*   **WebRTC Viewfinder:** Access your device's camera inside an elegant, curved-arch interface containing custom brass-style viewfinder corners and a golden, shimmery scanning laser animation.
-*   **Offline Simulation Sandbox:** For testing, developer demos, or App Store compliance, easily trigger a mock diagnostic scan selecting from an array of pre-configured healthy or distressed botanical profiles.
-*   **Gemini AI Diagnostics:** Leverage advanced multimodal models to parse leaf photographs and instantly compile complete, beautifully formatted health assessments.
+### 📸 Leaf Scanner (`src/components/Scanner.jsx`)
+*   **Live camera or upload:** Uses your device camera via `getUserMedia`, or upload/drag-drop an image (auto-compressed before analysis).
+*   **Real AI diagnosis:** With a Gemini key set, the photo is sent to `gemini-2.5-flash`, which returns a structured JSON health dossier.
+*   **Simulation sandbox:** With no key, pick a demo species and a health scenario (healthy, overwatered, root rot, spider mites, etc.) and run a simulated scan — or run a simulated scan against your own uploaded photo. You can also paste a Gemini key inline from the scanner.
 
-### 💬 4. Virtual Botanist Council Chat
-*   Consult a cozy, simulated council of expert virtual botanists—each with their own whimsically distinct personality—to guide your cultivation practices and answer tricky horticultural questions.
+### 💬 Botanist Chat (`src/components/BotanistChat.jsx`)
+Switch between **three distinct-personality specialists**, each with its own chat history:
+*   🧑‍🔬 **Dr. Sage** — pathology, pests, treatments
+*   🧪 **Flora** — soil mixes, watering, propagation
+*   🌿 **Moss** — styling, light placement, companion plants
 
-### 🔒 5. Backward-Compatible Data Migration
-*   Contains a built-in state migration helper. If legacy local storage keys (`verdant_`) are found upon application launch, they are instantly migrated to the new, secure `petal_parchment_` namespace, ensuring that user diaries are never lost.
+Open a plant's dossier and tap *Consult* to ground the conversation in that plant's diagnosis. Replies come from Gemini (`gemini-1.5-flash`) when a key **and** an active plant are present; otherwise the app serves built-in mock responses so chat still works offline. A client-side guard blocks basic prompt-injection attempts.
+
+### 📔 Care Schedule (`src/components/CareTasks.jsx`)
+A cozy lined-notebook checklist of daily rituals (watering, misting, pruning…) with a progress bar. *Note: this screen currently ships with a fixed sample task list for demonstration — it isn't yet linked to your saved plants or persisted.*
+
+### ⚙️ Settings (`src/components/Settings.jsx`)
+*   **Gemini key management** — save/clear your key (stored only in your browser's `localStorage`); a badge shows **Connected** vs **Simulation Active**.
+*   **Theme** — Forest Fairy (light) / Night Forest (dark).
+*   **Viewport mode** — Mobile Preview (phone frame) vs Responsive Web App (wide layout).
+*   **Data management** — export a JSON backup, import a backup, seed sample plant profiles, or clear all data.
+
+### 🔒 Local-First & Backward-Compatible
+All data (garden, theme, layout, key) lives in `localStorage` — nothing is sent to any server except your own requests to Google's Gemini API. Legacy `verdant_` storage keys are automatically migrated to the `petal_parchment_` namespace on load, so older data is never lost.
 
 ---
 
 ## 🛠️ Technology Stack
 
-*   **Core Framework:** React 18 & Vite (Super-fast Hot Module Replacement)
-*   **Styling System:** Vanilla CSS driven by dynamic design tokens (CSS variables) for maximum flexibility, high-performance rendering, and glassmorphic blurs.
-*   **Icons Library:** Lucide React (Clean, vector-perfect iconography)
-*   **Native App Shell:** CapacitorJS (Wraps web application inside native iOS and Android environments)
-*   **AI Engine:** Google Gemini SDK integration (Vercel Serverless proxy architecture ready)
+*   **Framework:** React 19 + Vite (fast HMR and builds)
+*   **Language:** JavaScript (JSX) — no TypeScript build step
+*   **Styling:** Vanilla CSS driven by design tokens (CSS custom properties) for theming and glassmorphic blurs
+*   **Icons:** Lucide React
+*   **AI Engine:** Google Gemini via [`@google/generative-ai`](https://www.npmjs.com/package/@google/generative-ai), called **directly from the browser** with a user-supplied key (no backend/proxy)
+*   **Hosting:** Deployed as a static SPA on Vercel
 
----
-
-## 📦 App Store Submission & Native Architecture
-
-Petal & Parchment is fully primed for native distribution on the Apple App Store and Google Play using **CapacitorJS**. 
+### Diagnostic Flow
 
 ```mermaid
-graph TD
-    A[Vite Web Codebase] -->|npm run build| B[dist Folder]
-    B -->|npx cap sync| C[Capacitor Core Bridge]
-    C -->|npx cap open ios| D[Xcode Project]
-    C -->|npx cap open android| E[Android Studio Project]
-    D -->|Archive & Upload| F[Apple App Store Connect]
-    E -->|Generate Bundle| G[Google Play Console]
-```
-
-### 📷 Native Camera Permissions Configuration
-
-Because leaf scanning requires active camera access, native builds must explicitly declare camera usage to prevent store review rejections.
-
-#### 🍎 Apple iOS Configuration (`ios/App/App/Info.plist`)
-```xml
-<key>NSCameraUsageDescription</key>
-<string>Petal & Parchment requires camera access to capture high-fidelity photographs of plant leaves for instant disease diagnosis.</string>
-```
-
-#### 🤖 Google Android Configuration (`android/app/src/main/AndroidManifest.xml`)
-```xml
-<uses-permission android:name="android.permission.CAMERA" />
-<uses-feature android:name="android.hardware.camera" android:required="false" />
-<uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+graph LR
+    A[Camera / Image Upload] --> B{Gemini key set?}
+    B -->|Yes| C[gemini-2.5-flash Vision]
+    B -->|No| D[Simulation Mode<br/>mock diagnoses]
+    C --> E[Structured Health Dossier]
+    D --> E
+    E --> F[Auto-saved to Garden<br/>localStorage]
 ```
 
 ---
@@ -92,39 +84,45 @@ Because leaf scanning requires active camera access, native builds must explicit
 ## 🚀 Getting Started
 
 ### Prerequisites
-Make sure you have [Node.js](https://nodejs.org/) (v18 or newer) installed.
+[Node.js](https://nodejs.org/) **20.19+ or 22.12+** (required by Vite 8).
 
-### 1. Clone & Install Dependencies
+### 1. Clone & Install
 ```bash
-git clone https://github.com/your-username/petal-and-parchment.git
-cd petal-and-parchment
+git clone <your-repo-url>
+cd plant-agent
 npm install
 ```
 
-### 2. Configure Your Environment
-Create a `.env` file in the root directory and insert your Gemini API Key:
-```env
-VITE_GEMINI_API_KEY=your_gemini_api_key_here
-```
-*(If no API key is provided, the application automatically runs in the elegant, fully functional Simulation Mode, making it perfect for secure local testing or offline developer showcases).*
-
-### 3. Run Development Server
+### 2. Run the Dev Server
 ```bash
 npm run dev
 ```
-Open your browser and navigate to the local host address shown (usually `http://localhost:5173`) to view the warm, cozy conservatory.
+Open the local address shown (usually `http://localhost:5173`).
 
-### 4. Build for Production
-Verify typescript compliance and build the optimized production assets bundle in a fraction of a second:
+### 3. Add Your Gemini API Key (optional)
+There is **no `.env` key** — the app does not read environment variables for the key. Instead, open **Settings** (or the Scanner's key panel) inside the app and paste a Gemini key from [Google AI Studio](https://aistudio.google.com/). It's saved to your browser's `localStorage`.
+
+> Without a key, the app runs fully in **Simulation Mode** — great for a quick tour or an offline demo.
+
+### 4. Build & Preview
 ```bash
-npm run build
+npm run build     # optimized production bundle -> dist/
+npm run preview   # serve the production build locally (matches Vercel)
 ```
+
+### Available Scripts
+| Script | Description |
+| --- | --- |
+| `npm run dev` | Start the Vite dev server with HMR |
+| `npm run build` | Build the production bundle to `dist/` |
+| `npm run preview` | Preview the production build locally |
+| `npm run lint` | Run ESLint |
 
 ---
 
 ## 🎨 Theme Design System
 
-The application styling is fully reactive and operates on modern HSL color tokens. You can inspect or modify these variables directly within `src/index.css`:
+Styling is driven by hex color tokens (CSS custom properties) in [`src/index.css`](src/index.css), swapped via a `data-theme` attribute:
 
 ```css
 :root, [data-theme="light"] {
@@ -144,11 +142,13 @@ The application styling is fully reactive and operates on modern HSL color token
 }
 ```
 
+The app also supports two layout modes (a stylized phone frame and a wide responsive web layout), selectable in Settings and auto-detected from screen size.
+
 ---
 
 ## 📜 License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+MIT License.
 
 ---
 
