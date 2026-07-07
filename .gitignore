@@ -31,3 +31,7 @@ dist-ssr
 *.sw?
 
 .vercel
+
+# Python backend (lives on the feature/fullstack-langgraph branch).
+# Left on disk here as an untracked venv/.env; never commit it on main.
+backend/

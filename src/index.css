@@ -908,6 +908,10 @@ button.secondary-btn:active {
   margin-top: -28px;
   height: 250px;
   margin-bottom: 20px;
+  /* On desktop the screen-container becomes a flex column. This hero has
+     overflow:hidden, which zeroes its automatic flex min-size, so without
+     this it collapses to a sliver in the height-constrained scroll column. */
+  flex-shrink: 0;
 }
 
 .dossier-image-hero img {
