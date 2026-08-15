@@ -97,18 +97,18 @@ export default function Settings({ apiKey, onSaveApiKey, onClearApiKey, onHydrat
         <div style={{ width: "76px", height: "76px", borderRadius: "50%", overflow: "hidden", border: "1.5px solid var(--primary)", padding: "2px", background: "var(--bg-card)", display: "flex", justifyContent: "center", alignItems: "center", boxShadow: "var(--shadow-md)", transition: "transform var(--t-fast)" }}>
           <img src="/logo.png" alt="Petal & Parchment Logo" style={{ width: "100%", height: "100%", borderRadius: "50%", objectFit: "cover" }} />
         </div>
-        <h2 style={{ fontSize: "24px", fontFamily: "var(--font-header)", fontWeight: "400", marginTop: "12px", color: "var(--text-main)" }}>
+        <h2 style={{ fontSize: "28px", fontFamily: "var(--font-header)", fontWeight: "400", marginTop: "12px", color: "var(--text-main)" }}>
           Petal & Parchment
         </h2>
-        <p style={{ fontSize: "11px", textTransform: "uppercase", letterSpacing: "1.5px", color: "var(--text-muted)", marginTop: "2px", fontWeight: "700" }}>
+        <p style={{ fontSize: "13px", textTransform: "uppercase", letterSpacing: "1.5px", color: "var(--text-muted)", marginTop: "2px", fontWeight: "700" }}>
           conservatory management
         </p>
       </div>
 
       {/* Visual Theme Selection Widget */}
       <div className="glass-card" style={{ marginBottom: "20px" }}>
-        <h3 style={{ fontSize: "14.5px", marginBottom: "6px", color: "var(--primary)" }}>App Visual Theme</h3>
-        <p style={{ fontSize: "12px", marginBottom: "14px", lineHeight: "1.45", color: "var(--text-sub)" }}>
+        <h3 style={{ fontSize: "16px", marginBottom: "6px", color: "var(--primary)" }}>App Visual Theme</h3>
+        <p style={{ fontSize: "14px", marginBottom: "14px", lineHeight: "1.45", color: "var(--text-sub)" }}>
           Toggle between the light forest fairy morning aesthetic and the dark mystical night forest theme.
         </p>
         <div style={{ 
@@ -128,7 +128,7 @@ export default function Settings({ apiKey, onSaveApiKey, onClearApiKey, onHydrat
               color: theme === "light" ? "var(--text-main)" : "var(--text-muted)", 
               padding: "9px 0", 
               fontWeight: "600", 
-              fontSize: "12px", 
+              fontSize: "14px", 
               cursor: "pointer",
               transition: "all var(--t-normal)",
               boxShadow: theme === "light" ? "var(--shadow-sm)" : "none"
@@ -146,7 +146,7 @@ export default function Settings({ apiKey, onSaveApiKey, onClearApiKey, onHydrat
               color: theme === "dark" ? "var(--text-main)" : "var(--text-muted)", 
               padding: "9px 0", 
               fontWeight: "600", 
-              fontSize: "12px", 
+              fontSize: "14px", 
               cursor: "pointer",
               transition: "all var(--t-normal)",
               boxShadow: theme === "dark" ? "var(--shadow-sm)" : "none"
@@ -159,8 +159,8 @@ export default function Settings({ apiKey, onSaveApiKey, onClearApiKey, onHydrat
 
       {/* App Layout Mode Selection Widget */}
       <div className="glass-card" style={{ marginBottom: "20px" }}>
-        <h3 style={{ fontSize: "14.5px", marginBottom: "6px", color: "var(--primary)" }}>App Viewport Mode</h3>
-        <p style={{ fontSize: "12px", marginBottom: "14px", lineHeight: "1.45", color: "var(--text-sub)" }}>
+        <h3 style={{ fontSize: "16px", marginBottom: "6px", color: "var(--primary)" }}>App Viewport Mode</h3>
+        <p style={{ fontSize: "14px", marginBottom: "14px", lineHeight: "1.45", color: "var(--text-sub)" }}>
           Switch between the high-fidelity mobile preview shell and a full responsive web application canvas.
         </p>
         <div style={{ 
@@ -180,7 +180,7 @@ export default function Settings({ apiKey, onSaveApiKey, onClearApiKey, onHydrat
               color: layoutMode === "mobile" ? "var(--text-main)" : "var(--text-muted)", 
               padding: "9px 0", 
               fontWeight: "600", 
-              fontSize: "12px", 
+              fontSize: "14px", 
               cursor: "pointer",
               transition: "all var(--t-normal)",
               boxShadow: layoutMode === "mobile" ? "var(--shadow-sm)" : "none"
@@ -198,7 +198,7 @@ export default function Settings({ apiKey, onSaveApiKey, onClearApiKey, onHydrat
               color: layoutMode === "webapp" ? "var(--text-main)" : "var(--text-muted)", 
               padding: "9px 0", 
               fontWeight: "600", 
-              fontSize: "12px", 
+              fontSize: "14px", 
               cursor: "pointer",
               transition: "all var(--t-normal)",
               boxShadow: layoutMode === "webapp" ? "var(--shadow-sm)" : "none"
@@ -218,7 +218,7 @@ export default function Settings({ apiKey, onSaveApiKey, onClearApiKey, onHydrat
             padding: "12px 18px", 
             marginBottom: "20px",
             color: "var(--primary)",
-            fontSize: "12.5px",
+            fontSize: "15px",
             fontWeight: "600",
             textAlign: "center"
           }}
@@ -230,7 +230,7 @@ export default function Settings({ apiKey, onSaveApiKey, onClearApiKey, onHydrat
       {/* 1. GEMINI API CONFIGURATION SECTION */}
       <div className="glass-card" style={{ marginBottom: "20px" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
-          <h3 style={{ fontSize: "15px" }}>Gemini Core Settings</h3>
+          <h3 style={{ fontSize: "18px" }}>Gemini Core Settings</h3>
           {apiKey ? (
             <span className="api-key-badge configured">
               <ShieldCheck size={12} /> CONNECTED
@@ -242,7 +242,7 @@ export default function Settings({ apiKey, onSaveApiKey, onClearApiKey, onHydrat
           )}
         </div>
 
-        <p style={{ fontSize: "12px", lineHeight: "1.45", marginBottom: "16px" }}>
+        <p style={{ fontSize: "14px", lineHeight: "1.45", marginBottom: "16px" }}>
           Configure a client-side **Google Gemini API Key** to enable live real-time analysis of uploaded photographs. If cleared, the app operates in offline simulation mode.
         </p>
 
@@ -276,7 +276,7 @@ export default function Settings({ apiKey, onSaveApiKey, onClearApiKey, onHydrat
               <button 
                 className="secondary-btn" 
                 onClick={handleClear}
-                style={{ flex: 1, padding: "12px 24px", fontSize: "13px" }}
+                style={{ flex: 1, padding: "12px 24px", fontSize: "15px" }}
               >
                 Clear Key
               </button>
@@ -284,7 +284,7 @@ export default function Settings({ apiKey, onSaveApiKey, onClearApiKey, onHydrat
             <button 
               className="primary-btn" 
               onClick={handleSave}
-              style={{ flex: 2, padding: "12px 24px", fontSize: "13px" }}
+              style={{ flex: 2, padding: "12px 24px", fontSize: "15px" }}
             >
               Save Configuration
             </button>
@@ -295,11 +295,11 @@ export default function Settings({ apiKey, onSaveApiKey, onClearApiKey, onHydrat
       {/* 2. INSTRUCTIONS SECTION */}
       {!apiKey && (
         <div className="glass-card" style={{ marginBottom: "20px", background: "rgba(255,255,255,0.01)" }}>
-          <h4 style={{ fontSize: "13.5px", display: "flex", alignItems: "center", gap: "6px", marginBottom: "10px", color: "var(--primary)" }}>
+          <h4 style={{ fontSize: "16px", display: "flex", alignItems: "center", gap: "6px", marginBottom: "10px", color: "var(--primary)" }}>
             <HelpCircle size={15} />
             How to get an API Key
           </h4>
-          <ol style={{ paddingLeft: "16px", fontSize: "12px", color: "var(--text-sub)", display: "flex", flexDirection: "column", gap: "6px" }}>
+          <ol style={{ paddingLeft: "16px", fontSize: "14px", color: "var(--text-sub)", display: "flex", flexDirection: "column", gap: "6px" }}>
             <li>Go to <a href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer" style={{ color: "var(--primary)", fontWeight: "600", textDecoration: "underline" }}>Google AI Studio</a>.</li>
             <li>Sign in with your Google account.</li>
             <li>Click on the green <strong>"Get API Key"</strong> button at the top-left.</li>
@@ -317,11 +317,11 @@ export default function Settings({ apiKey, onSaveApiKey, onClearApiKey, onHydrat
           borderColor: "rgba(74, 114, 94, 0.15)"
         }}
       >
-        <h4 style={{ fontSize: "14px", display: "flex", alignItems: "center", gap: "8px", marginBottom: "10px", color: "var(--primary)" }}>
+        <h4 style={{ fontSize: "16px", display: "flex", alignItems: "center", gap: "8px", marginBottom: "10px", color: "var(--primary)" }}>
           <ShieldCheck size={16} />
           Privacy & Security
         </h4>
-        <ul style={{ paddingLeft: "12px", fontSize: "12px", color: "var(--text-sub)", display: "flex", flexDirection: "column", gap: "8px", listStyleType: "none" }}>
+        <ul style={{ paddingLeft: "12px", fontSize: "14px", color: "var(--text-sub)", display: "flex", flexDirection: "column", gap: "8px", listStyleType: "none" }}>
           <li style={{ display: "flex", gap: "8px", alignItems: "flex-start" }}>
             <span style={{ color: "var(--primary)", marginTop: "2px" }}>✔</span>
             <span><strong>Zero Server Retention:</strong> Your credentials are stored strictly client-side inside sandboxed local browser storage (`localStorage`) and are never sent to external servers.</span>
@@ -339,8 +339,8 @@ export default function Settings({ apiKey, onSaveApiKey, onClearApiKey, onHydrat
 
       {/* 3. DATA MANAGEMENT & UTILITIES */}
       <div className="glass-card" style={{ marginBottom: "20px" }}>
-        <h3 style={{ fontSize: "15px", marginBottom: "6px", color: "var(--primary)" }}>Conservatory Data Management</h3>
-        <p style={{ fontSize: "12px", marginBottom: "16px", lineHeight: "1.45", color: "var(--text-sub)" }}>
+        <h3 style={{ fontSize: "18px", marginBottom: "6px", color: "var(--primary)" }}>Conservatory Data Management</h3>
+        <p style={{ fontSize: "14px", marginBottom: "16px", lineHeight: "1.45", color: "var(--text-sub)" }}>
           Export your conservatory diary to a backup file, restore from a previous export, or seed simulation profiles.
         </p>
         
@@ -348,7 +348,7 @@ export default function Settings({ apiKey, onSaveApiKey, onClearApiKey, onHydrat
           <button 
             className="secondary-btn" 
             onClick={handleHydrate}
-            style={{ width: "100%", padding: "11px 16px", fontSize: "12.5px", display: "flex", gap: "8px", justifyContent: "center", alignItems: "center" }}
+            style={{ width: "100%", padding: "11px 16px", fontSize: "15px", display: "flex", gap: "8px", justifyContent: "center", alignItems: "center" }}
           >
             <RefreshCw size={14} /> Populate Simulation Profiles
           </button>
@@ -357,7 +357,7 @@ export default function Settings({ apiKey, onSaveApiKey, onClearApiKey, onHydrat
             <button 
               className="secondary-btn" 
               onClick={handleExport}
-              style={{ flex: 1, padding: "11px 16px", fontSize: "12.5px", display: "flex", gap: "8px", justifyContent: "center", alignItems: "center", margin: 0 }}
+              style={{ flex: 1, padding: "11px 16px", fontSize: "15px", display: "flex", gap: "8px", justifyContent: "center", alignItems: "center", margin: 0 }}
               title="Download backup file"
             >
               <Download size={14} /> Export Backup
@@ -365,7 +365,7 @@ export default function Settings({ apiKey, onSaveApiKey, onClearApiKey, onHydrat
             
             <label 
               className="secondary-btn" 
-              style={{ flex: 1, padding: "11px 16px", fontSize: "12.5px", display: "flex", gap: "8px", justifyContent: "center", alignItems: "center", cursor: "pointer", margin: 0 }}
+              style={{ flex: 1, padding: "11px 16px", fontSize: "15px", display: "flex", gap: "8px", justifyContent: "center", alignItems: "center", cursor: "pointer", margin: 0 }}
               title="Restore from backup file"
             >
               <Upload size={14} /> Import Backup
@@ -379,7 +379,7 @@ export default function Settings({ apiKey, onSaveApiKey, onClearApiKey, onHydrat
             style={{ 
               width: "100%", 
               padding: "11px 16px", 
-              fontSize: "12.5px", 
+              fontSize: "15px", 
               display: "flex", 
               gap: "8px", 
               justifyContent: "center", 
@@ -396,11 +396,11 @@ export default function Settings({ apiKey, onSaveApiKey, onClearApiKey, onHydrat
 
       {/* 4. APP INFOPANEL */}
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "6px", marginTop: "10px", opacity: 0.5 }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "11px", color: "var(--text-muted)" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "var(--text-muted)" }}>
           <Info size={12} />
           <span>Petal & Parchment - Version 1.2.0</span>
         </div>
-        <p style={{ fontSize: "9px", color: "var(--text-muted)" }}>
+        <p style={{ fontSize: "11px", color: "var(--text-muted)" }}>
           Pair-programmed by Google DeepMind Antigravity AI
         </p>
       </div>

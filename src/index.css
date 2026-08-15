@@ -261,7 +261,7 @@ h1, h2, h3, h4 {
 }
 
 p {
-  font-size: 13.5px;
+  font-size: 16px;
   line-height: 1.55;
   color: var(--text-sub);
 }
@@ -331,7 +331,7 @@ p {
   gap: 6px;
   padding: 5px 12px;
   border-radius: 99px;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -440,7 +440,7 @@ p {
 .nav-item span {
   display: block; /* Show labels at all times for a clean, stable layout */
   font-family: var(--font-body);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.1px;
   text-transform: uppercase;
@@ -489,7 +489,7 @@ button.primary-btn {
   border: none;
   border-radius: 99px; /* Capsule pill */
   padding: 12px 24px;
-  font-size: 13.5px;
+  font-size: 16px;
   font-weight: 600;
   font-family: var(--font-body);
   cursor: pointer;
@@ -516,7 +516,7 @@ button.secondary-btn {
   border: 1px solid var(--border-glass);
   border-radius: 99px; /* Capsule pill */
   padding: 12px 24px;
-  font-size: 13.5px;
+  font-size: 16px;
   font-weight: 500;
   font-family: var(--font-body);
   cursor: pointer;
@@ -608,7 +608,7 @@ button.secondary-btn:active {
   border: 1px solid rgba(140, 174, 158, 0.15);
   border-radius: 8px;
   padding: 2px 6px;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 700;
 }
 
@@ -804,7 +804,7 @@ button.secondary-btn:active {
   padding: 10px 20px;
   color: var(--text-main);
   outline: none;
-  font-size: 13.5px;
+  font-size: 16px;
   font-family: var(--font-body);
   transition: all var(--t-fast);
   cursor: pointer;
@@ -872,7 +872,7 @@ button.secondary-btn:active {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 12.5px;
+  font-size: 15px;
   color: var(--text-muted);
 }
 
@@ -948,7 +948,7 @@ button.secondary-btn:active {
   align-items: center;
   font-family: var(--font-header);
   font-weight: 700;
-  font-size: 17px;
+  font-size: 20px;
   box-shadow: 
     var(--shadow-sm),
     inset 0 0 5px rgba(255,255,255,0.8);
@@ -1013,7 +1013,7 @@ button.secondary-btn:active {
   align-items: center;
   font-family: var(--font-header);
   font-weight: 700;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--secondary);
   flex-shrink: 0;
   z-index: 2;
@@ -1073,11 +1073,11 @@ button.secondary-btn:active {
 }
 
 .botanist-info h3 {
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 700;
 }
 .botanist-info p {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--secondary);
   font-weight: 500;
   display: flex;
@@ -1107,7 +1107,7 @@ button.secondary-btn:active {
   max-width: 82%;
   padding: 13px 16px;
   border-radius: 22px;
-  font-size: 13.5px;
+  font-size: 16px;
   line-height: 1.5;
   word-break: break-word;
 }
@@ -1142,7 +1142,7 @@ button.secondary-btn:active {
 
 .chat-bubble.user p {
   color: var(--bg-phone);
-  font-size: 13.5px;
+  font-size: 16px;
   font-weight: 500;
 }
 
@@ -1179,7 +1179,7 @@ button.secondary-btn:active {
   border-radius: 99px;
   padding: 12px 20px;
   color: var(--text-main);
-  font-size: 13px;
+  font-size: 15px;
   outline: none;
   transition: all var(--t-fast);
 }
@@ -1227,7 +1227,7 @@ button.secondary-btn:active {
   border: 1px solid rgba(140, 174, 158, 0.1);
   border-radius: 99px;
   padding: 6px 14px;
-  font-size: 10.5px;
+  font-size: 12px;
   color: var(--text-sub);
   cursor: pointer;
   transition: all var(--t-fast);
@@ -1247,7 +1247,7 @@ button.secondary-btn:active {
   border-radius: 99px;
   padding: 12px 16px;
   color: var(--text-main);
-  font-size: 13px;
+  font-size: 15px;
   outline: none;
 }
 
@@ -1452,7 +1452,7 @@ body::before {
   .webapp-frame .nav-item span {
     display: inline-block !important; /* Keep labels fully visible beside the icon */
     margin-left: 8px;
-    font-size: 11px !important;
+    font-size: 13px !important;
     letter-spacing: 0.5px !important;
   }
 
@@ -1560,7 +1560,7 @@ body::before {
     border: 1px solid var(--border-glass);
     border-radius: 24px;
     padding: 24px;
-    font-size: 13px;
+    font-size: 15px;
     color: var(--text-sub);
     line-height: 1.55;
     box-shadow: var(--shadow-md);

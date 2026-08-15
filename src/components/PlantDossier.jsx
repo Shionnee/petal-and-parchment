@@ -122,8 +122,8 @@ export default function PlantDossier({ plantData, onBack, onSaveToggle, isSaved,
             <Sun size={11} style={{ color: "var(--secondary)" }} />
           </div>
           <div style={{ display: "flex", flexDirection: "column", lineHeight: "1" }}>
-            <span style={{ fontSize: "10px", color: "var(--text-muted)", fontWeight: "600", textTransform: "uppercase" }}>Light</span>
-            <span style={{ fontSize: "12px", color: "var(--text-main)", fontWeight: "700", marginTop: "1px" }}>{lightPct}%</span>
+            <span style={{ fontSize: "12px", color: "var(--text-muted)", fontWeight: "600", textTransform: "uppercase" }}>Light</span>
+            <span style={{ fontSize: "14px", color: "var(--text-main)", fontWeight: "700", marginTop: "1px" }}>{lightPct}%</span>
           </div>
         </div>
 
@@ -141,8 +141,8 @@ export default function PlantDossier({ plantData, onBack, onSaveToggle, isSaved,
             <Droplets size={11} style={{ color: "var(--primary)" }} />
           </div>
           <div style={{ display: "flex", flexDirection: "column", lineHeight: "1" }}>
-            <span style={{ fontSize: "10px", color: "var(--text-muted)", fontWeight: "600", textTransform: "uppercase" }}>Water</span>
-            <span style={{ fontSize: "12px", color: "var(--text-main)", fontWeight: "700", marginTop: "1px" }}>{waterPct}%</span>
+            <span style={{ fontSize: "12px", color: "var(--text-muted)", fontWeight: "600", textTransform: "uppercase" }}>Water</span>
+            <span style={{ fontSize: "14px", color: "var(--text-main)", fontWeight: "700", marginTop: "1px" }}>{waterPct}%</span>
           </div>
         </div>
 
@@ -160,8 +160,8 @@ export default function PlantDossier({ plantData, onBack, onSaveToggle, isSaved,
             <Wind size={11} style={{ color: "var(--info)" }} />
           </div>
           <div style={{ display: "flex", flexDirection: "column", lineHeight: "1" }}>
-            <span style={{ fontSize: "10px", color: "var(--text-muted)", fontWeight: "600", textTransform: "uppercase" }}>Humidity</span>
-            <span style={{ fontSize: "12px", color: "var(--text-main)", fontWeight: "700", marginTop: "1px" }}>{humidityPct}%</span>
+            <span style={{ fontSize: "12px", color: "var(--text-muted)", fontWeight: "600", textTransform: "uppercase" }}>Humidity</span>
+            <span style={{ fontSize: "14px", color: "var(--text-main)", fontWeight: "700", marginTop: "1px" }}>{humidityPct}%</span>
           </div>
         </div>
 
@@ -224,7 +224,7 @@ export default function PlantDossier({ plantData, onBack, onSaveToggle, isSaved,
       {/* 2. CORE PLANT HEADER & SPECIES METADATA */}
       <div style={{ padding: "0 24px" }}>
         <p style={{ 
-          fontSize: "10.5px", 
+          fontSize: "12px", 
           color: "var(--primary)", 
           textTransform: "uppercase", 
           letterSpacing: "1.8px", 
@@ -234,10 +234,10 @@ export default function PlantDossier({ plantData, onBack, onSaveToggle, isSaved,
         }}>
           Botanical Dossier
         </p>
-        <h1 style={{ fontSize: "28px", lineHeight: "1.15", marginBottom: "4px", textAlign: "left" }}>
+        <h1 style={{ fontSize: "32px", lineHeight: "1.15", marginBottom: "4px", textAlign: "left" }}>
           {plantName}
         </h1>
-        <p style={{ fontStyle: "italic", fontSize: "13px", color: "var(--text-sub)", display: "flex", gap: "6px", flexWrap: "wrap", alignItems: "center" }}>
+        <p style={{ fontStyle: "italic", fontSize: "15px", color: "var(--text-sub)", display: "flex", gap: "6px", flexWrap: "wrap", alignItems: "center" }}>
           <span>{botanicalName}</span> 
           <span style={{ color: "var(--text-muted)" }}>•</span> 
           <span>Family: {family}</span>
@@ -250,7 +250,7 @@ export default function PlantDossier({ plantData, onBack, onSaveToggle, isSaved,
             border: "1px solid var(--border-glass)", 
             borderRadius: "99px", 
             padding: "4px 10px", 
-            fontSize: "10px", 
+            fontSize: "12px", 
             color: "var(--text-sub)", 
             fontWeight: "500",
             boxShadow: "var(--shadow-sm)"
@@ -263,7 +263,7 @@ export default function PlantDossier({ plantData, onBack, onSaveToggle, isSaved,
               border: "1px solid var(--border-glass)", 
               borderRadius: "99px", 
               padding: "4px 10px", 
-              fontSize: "10px", 
+              fontSize: "12px", 
               color: "var(--text-sub)", 
               fontWeight: "500",
               boxShadow: "var(--shadow-sm)"
@@ -277,7 +277,7 @@ export default function PlantDossier({ plantData, onBack, onSaveToggle, isSaved,
               border: "1px solid rgba(214, 123, 123, 0.15)", 
               borderRadius: "99px", 
               padding: "4px 10px", 
-              fontSize: "10px", 
+              fontSize: "12px", 
               color: "var(--crimson)", 
               fontWeight: "600",
               display: "flex", 
@@ -308,7 +308,7 @@ export default function PlantDossier({ plantData, onBack, onSaveToggle, isSaved,
               color: activeTab === "diagnosis" ? "var(--text-main)" : "var(--text-muted)", 
               padding: "9px 0", 
               fontWeight: "600", 
-              fontSize: "12.5px", 
+              fontSize: "15px", 
               cursor: "pointer",
               transition: "all var(--t-normal)",
               boxShadow: activeTab === "diagnosis" ? "var(--shadow-sm)" : "none"
@@ -326,7 +326,7 @@ export default function PlantDossier({ plantData, onBack, onSaveToggle, isSaved,
               color: activeTab === "care" ? "var(--text-main)" : "var(--text-muted)", 
               padding: "9px 0", 
               fontWeight: "600", 
-              fontSize: "12.5px", 
+              fontSize: "15px", 
               cursor: "pointer",
               transition: "all var(--t-normal)",
               boxShadow: activeTab === "care" ? "var(--shadow-sm)" : "none"
@@ -357,23 +357,23 @@ export default function PlantDossier({ plantData, onBack, onSaveToggle, isSaved,
                 <span className={`status-pill ${severity}`} style={{ marginBottom: "6px" }}>
                   {severity}
                 </span>
-                <h3 style={{ fontSize: "16px", lineHeight: "1.25", marginBottom: "4px" }}>{conditionName}</h3>
-                <p style={{ fontSize: "11px", color: "var(--text-muted)" }}>AI Diagnostic Certainty: 95%</p>
+                <h3 style={{ fontSize: "18px", lineHeight: "1.25", marginBottom: "4px" }}>{conditionName}</h3>
+                <p style={{ fontSize: "13px", color: "var(--text-muted)" }}>AI Diagnostic Certainty: 95%</p>
               </div>
             </div>
 
             {/* Pathologist Assessment Card */}
             <div className="glass-card" style={{ padding: "20px" }}>
-              <h4 style={{ fontSize: "14.5px", display: "flex", alignItems: "center", gap: "8px", marginBottom: "10px", color: "var(--primary)" }}>
+              <h4 style={{ fontSize: "16px", display: "flex", alignItems: "center", gap: "8px", marginBottom: "10px", color: "var(--primary)" }}>
                 <AlertTriangle size={16} style={{ color: getGaugeColor() }} />
                 Pathologist Assessment
               </h4>
-              <p style={{ fontSize: "13px", lineHeight: "1.55", color: "var(--text-main)" }}>{diagnosisDescription}</p>
+              <p style={{ fontSize: "15px", lineHeight: "1.55", color: "var(--text-main)" }}>{diagnosisDescription}</p>
 
               {/* Symptoms List */}
               {symptoms.length > 0 && (
                 <div style={{ marginTop: "16px", borderTop: "1px solid var(--border-glass)", paddingTop: "14px" }}>
-                  <h5 style={{ fontSize: "12px", color: "var(--text-main)", fontWeight: "600", marginBottom: "8px", display: "flex", alignItems: "center", gap: "6px" }}>
+                  <h5 style={{ fontSize: "14px", color: "var(--text-main)", fontWeight: "600", marginBottom: "8px", display: "flex", alignItems: "center", gap: "6px" }}>
                     <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "var(--gold)" }}></span>
                     Observed Symptoms
                   </h5>
@@ -382,7 +382,7 @@ export default function PlantDossier({ plantData, onBack, onSaveToggle, isSaved,
                       <span 
                         key={idx} 
                         style={{ 
-                          fontSize: "11px", 
+                          fontSize: "13px", 
                           color: "var(--text-sub)", 
                           background: "rgba(74, 114, 94, 0.03)", 
                           padding: "4px 10px", 
@@ -400,13 +400,13 @@ export default function PlantDossier({ plantData, onBack, onSaveToggle, isSaved,
               {/* Causes List */}
               {causes.length > 0 && (
                 <div style={{ marginTop: "14px", borderTop: "1px solid var(--border-glass)", paddingTop: "14px" }}>
-                  <h5 style={{ fontSize: "12px", color: "var(--text-main)", fontWeight: "600", marginBottom: "8px", display: "flex", alignItems: "center", gap: "6px" }}>
+                  <h5 style={{ fontSize: "14px", color: "var(--text-main)", fontWeight: "600", marginBottom: "8px", display: "flex", alignItems: "center", gap: "6px" }}>
                     <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "var(--primary)" }}></span>
                     Potential Causes
                   </h5>
                   <ul style={{ paddingLeft: "12px", display: "flex", flexDirection: "column", gap: "6px", listStyleType: "none" }}>
                     {causes.map((c, idx) => (
-                      <li key={idx} style={{ fontSize: "12px", color: "var(--text-sub)", display: "flex", gap: "8px" }}>
+                      <li key={idx} style={{ fontSize: "14px", color: "var(--text-sub)", display: "flex", gap: "8px" }}>
                         <span style={{ color: "var(--secondary)" }}>•</span>
                         <span>{c}</span>
                       </li>
@@ -418,7 +418,7 @@ export default function PlantDossier({ plantData, onBack, onSaveToggle, isSaved,
 
             {/* Recovery Treatment Plan Timeline */}
             <div>
-              <h3 style={{ fontSize: "16px", marginBottom: "14px", fontFamily: "var(--font-header)", display: "flex", alignItems: "center", gap: "6px" }}>
+              <h3 style={{ fontSize: "18px", marginBottom: "14px", fontFamily: "var(--font-header)", display: "flex", alignItems: "center", gap: "6px" }}>
                 <Sparkles size={16} style={{ color: "var(--secondary)" }} />
                 Prescribed Treatment Plan
               </h3>
@@ -427,7 +427,7 @@ export default function PlantDossier({ plantData, onBack, onSaveToggle, isSaved,
                   <div key={idx} className="treatment-step" style={{ marginBottom: "6px" }}>
                     <div className="treatment-step-node" style={{ background: "var(--bg-card)" }}>{idx + 1}</div>
                     <div className="treatment-step-content" style={{ background: "var(--bg-card)", border: "1px solid var(--border-glass)" }}>
-                      <p style={{ fontSize: "12.5px", color: "var(--text-main)", lineHeight: "1.5" }}>{step}</p>
+                      <p style={{ fontSize: "15px", color: "var(--text-main)", lineHeight: "1.5" }}>{step}</p>
                     </div>
                   </div>
                 ))}
@@ -455,17 +455,17 @@ export default function PlantDossier({ plantData, onBack, onSaveToggle, isSaved,
         {activeTab === "care" && (
           <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
             <div className="glass-card" style={{ padding: "20px" }}>
-              <h4 style={{ fontSize: "14.5px", marginBottom: "8px", color: "var(--primary)" }}>Species Bio</h4>
-              <p style={{ fontSize: "13px", lineHeight: "1.55" }}>{description}</p>
+              <h4 style={{ fontSize: "16px", marginBottom: "8px", color: "var(--primary)" }}>Species Bio</h4>
+              <p style={{ fontSize: "15px", lineHeight: "1.55" }}>{description}</p>
               {origin && (
-                <p style={{ fontSize: "11px", marginTop: "12px", color: "var(--text-muted)", fontStyle: "italic", display: "flex", alignItems: "center", gap: "4px" }}>
+                <p style={{ fontSize: "13px", marginTop: "12px", color: "var(--text-muted)", fontStyle: "italic", display: "flex", alignItems: "center", gap: "4px" }}>
                   <span>Native Range:</span> <span>{origin}</span>
                 </p>
               )}
             </div>
 
             {/* Specs Table */}
-            <h3 className="italic-serif" style={{ fontSize: "19px", marginBottom: "-8px", color: "var(--text-main)", fontWeight: "600" }}>Care Parameters</h3>
+            <h3 className="italic-serif" style={{ fontSize: "22px", marginBottom: "-8px", color: "var(--text-main)", fontWeight: "600" }}>Care Parameters</h3>
             <div className="glass-card" style={{ padding: "8px 16px", background: "var(--bg-card)" }}>
               <table style={{ width: "100%", borderCollapse: "collapse", border: "none" }}>
                 <tbody>
@@ -476,8 +476,8 @@ export default function PlantDossier({ plantData, onBack, onSaveToggle, isSaved,
                       </div>
                     </td>
                     <td style={{ padding: "14px 8px", verticalAlign: "middle" }}>
-                      <span style={{ fontSize: "9px", color: "var(--text-muted)", fontWeight: "700", letterSpacing: "1px", display: "block", textTransform: "uppercase" }}>Light Requirements</span>
-                      <span style={{ fontSize: "13px", color: "var(--text-main)", fontWeight: "500", marginTop: "2px", display: "block", lineHeight: "1.4" }}>{light}</span>
+                      <span style={{ fontSize: "11px", color: "var(--text-muted)", fontWeight: "700", letterSpacing: "1px", display: "block", textTransform: "uppercase" }}>Light Requirements</span>
+                      <span style={{ fontSize: "15px", color: "var(--text-main)", fontWeight: "500", marginTop: "2px", display: "block", lineHeight: "1.4" }}>{light}</span>
                     </td>
                   </tr>
                   <tr style={{ borderBottom: "1px solid var(--border-glass)" }}>
@@ -487,8 +487,8 @@ export default function PlantDossier({ plantData, onBack, onSaveToggle, isSaved,
                       </div>
                     </td>
                     <td style={{ padding: "14px 8px", verticalAlign: "middle" }}>
-                      <span style={{ fontSize: "9px", color: "var(--text-muted)", fontWeight: "700", letterSpacing: "1px", display: "block", textTransform: "uppercase" }}>Watering Cadence</span>
-                      <span style={{ fontSize: "13px", color: "var(--text-main)", fontWeight: "500", marginTop: "2px", display: "block", lineHeight: "1.4" }}>{water}</span>
+                      <span style={{ fontSize: "11px", color: "var(--text-muted)", fontWeight: "700", letterSpacing: "1px", display: "block", textTransform: "uppercase" }}>Watering Cadence</span>
+                      <span style={{ fontSize: "15px", color: "var(--text-main)", fontWeight: "500", marginTop: "2px", display: "block", lineHeight: "1.4" }}>{water}</span>
                     </td>
                   </tr>
                   <tr style={{ borderBottom: "1px solid var(--border-glass)" }}>
@@ -498,8 +498,8 @@ export default function PlantDossier({ plantData, onBack, onSaveToggle, isSaved,
                       </div>
                     </td>
                     <td style={{ padding: "14px 8px", verticalAlign: "middle" }}>
-                      <span style={{ fontSize: "9px", color: "var(--text-muted)", fontWeight: "700", letterSpacing: "1px", display: "block", textTransform: "uppercase" }}>Humidity Level</span>
-                      <span style={{ fontSize: "13px", color: "var(--text-main)", fontWeight: "500", marginTop: "2px", display: "block", lineHeight: "1.4" }}>{humidity}</span>
+                      <span style={{ fontSize: "11px", color: "var(--text-muted)", fontWeight: "700", letterSpacing: "1px", display: "block", textTransform: "uppercase" }}>Humidity Level</span>
+                      <span style={{ fontSize: "15px", color: "var(--text-main)", fontWeight: "500", marginTop: "2px", display: "block", lineHeight: "1.4" }}>{humidity}</span>
                     </td>
                   </tr>
                   <tr>
@@ -509,8 +509,8 @@ export default function PlantDossier({ plantData, onBack, onSaveToggle, isSaved,
                       </div>
                     </td>
                     <td style={{ padding: "14px 8px", verticalAlign: "middle" }}>
-                      <span style={{ fontSize: "9px", color: "var(--text-muted)", fontWeight: "700", letterSpacing: "1px", display: "block", textTransform: "uppercase" }}>Ideal Temperature</span>
-                      <span style={{ fontSize: "13px", color: "var(--text-main)", fontWeight: "500", marginTop: "2px", display: "block", lineHeight: "1.4" }}>{temperature}</span>
+                      <span style={{ fontSize: "11px", color: "var(--text-muted)", fontWeight: "700", letterSpacing: "1px", display: "block", textTransform: "uppercase" }}>Ideal Temperature</span>
+                      <span style={{ fontSize: "15px", color: "var(--text-main)", fontWeight: "500", marginTop: "2px", display: "block", lineHeight: "1.4" }}>{temperature}</span>
                     </td>
                   </tr>
                 </tbody>
@@ -527,11 +527,11 @@ export default function PlantDossier({ plantData, onBack, onSaveToggle, isSaved,
                   padding: "16px" 
                 }}
               >
-                <h4 style={{ fontSize: "14px", color: "var(--crimson)", display: "flex", alignItems: "center", gap: "8px", marginBottom: "6px" }}>
+                <h4 style={{ fontSize: "16px", color: "var(--crimson)", display: "flex", alignItems: "center", gap: "8px", marginBottom: "6px" }}>
                   <ShieldAlert size={16} />
                   Hazard / Toxicity Alert
                 </h4>
-                <p style={{ fontSize: "12.5px", color: "var(--text-sub)", lineHeight: "1.5" }}>{toxicity}</p>
+                <p style={{ fontSize: "15px", color: "var(--text-sub)", lineHeight: "1.5" }}>{toxicity}</p>
               </div>
             )}
           </div>

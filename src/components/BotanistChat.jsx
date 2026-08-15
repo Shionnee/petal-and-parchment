@@ -400,10 +400,10 @@ export default function BotanistChat({ apiKey, activePlantContext, onClearContex
         <div className="chat-sidebar">
           {/* Dynamic Console Card (hidden on mobile via CSS) */}
           <div className="chat-sidebar-desc">
-            <h4 style={{ fontSize: "14px", fontWeight: "600", color: "var(--primary)", marginBottom: "6px", display: "flex", alignItems: "center", gap: "6px" }}>
+            <h4 style={{ fontSize: "16px", fontWeight: "600", color: "var(--primary)", marginBottom: "6px", display: "flex", alignItems: "center", gap: "6px" }}>
               {activeAgent.avatar} {sidebarInfo.title}
             </h4>
-            <p style={{ fontSize: "12px", color: "var(--text-sub)", lineHeight: "1.5" }}>
+            <p style={{ fontSize: "14px", color: "var(--text-sub)", lineHeight: "1.5" }}>
               {sidebarInfo.desc}
             </p>
             {activePlantContext && (
@@ -413,7 +413,7 @@ export default function BotanistChat({ apiKey, activePlantContext, onClearContex
                 background: "var(--primary-glow)", 
                 border: "1px solid var(--border-glass)", 
                 borderRadius: "16px",
-                fontSize: "11px",
+                fontSize: "13px",
                 color: "var(--text-sub)"
               }}>
                 🌱 Grounded on active diagnostics report of <strong>{activePlantContext.plantName}</strong>.
@@ -459,8 +459,8 @@ export default function BotanistChat({ apiKey, activePlantContext, onClearContex
                       outline: "none"
                     }}
                   >
-                    <span style={{ fontSize: "16px" }}>{agent.avatar}</span>
-                    <span style={{ fontSize: "10px", fontWeight: isActive ? "700" : "500", letterSpacing: "0.2px" }}>
+                    <span style={{ fontSize: "18px" }}>{agent.avatar}</span>
+                    <span style={{ fontSize: "12px", fontWeight: isActive ? "700" : "500", letterSpacing: "0.2px" }}>
                       {agent.name}
                     </span>
                   </button>
@@ -482,7 +482,7 @@ export default function BotanistChat({ apiKey, activePlantContext, onClearContex
               boxShadow: "var(--shadow-sm)",
               width: "100%"
             }}>
-              <span style={{ fontSize: "11.5px", color: "var(--text-sub)", fontWeight: "500", display: "flex", alignItems: "center", gap: "6px" }}>
+              <span style={{ fontSize: "13px", color: "var(--text-sub)", fontWeight: "500", display: "flex", alignItems: "center", gap: "6px" }}>
                 <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "var(--primary)" }}></span>
                 Focus: <strong style={{ color: "var(--text-main)", fontWeight: "600" }}>{activePlantContext.plantName}</strong>
               </span>
@@ -515,7 +515,7 @@ export default function BotanistChat({ apiKey, activePlantContext, onClearContex
               className="avatar animate-pop"
               key={`avatar_${activeAgentId}`}
               style={{ 
-                fontSize: "20px", 
+                fontSize: "22px", 
                 fontStyle: "normal", 
                 background: "var(--primary-glow)", 
                 border: "1px solid var(--border-glass)", 
@@ -532,11 +532,11 @@ export default function BotanistChat({ apiKey, activePlantContext, onClearContex
             <div className="botanist-info" style={{ flex: 1, marginLeft: "12px" }}>
               <h3 style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                 {activeAgent.name}
-                <span style={{ fontSize: "9px", fontWeight: "700", padding: "2px 6px", borderRadius: "99px", background: "var(--primary-glow)", color: "var(--primary)", border: "1px solid rgba(74, 114, 94, 0.12)" }}>
+                <span style={{ fontSize: "11px", fontWeight: "700", padding: "2px 6px", borderRadius: "99px", background: "var(--primary-glow)", color: "var(--primary)", border: "1px solid rgba(74, 114, 94, 0.12)" }}>
                   {activeAgent.role.split(" ").slice(-1)[0]}
                 </span>
               </h3>
-              <p style={{ fontSize: "11px", color: "var(--text-muted)", marginTop: "2px" }}>
+              <p style={{ fontSize: "13px", color: "var(--text-muted)", marginTop: "2px" }}>
                 {activeAgent.tagline}
               </p>
             </div>

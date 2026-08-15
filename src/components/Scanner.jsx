@@ -297,8 +297,8 @@ export default function Scanner({ apiKey, onSaveApiKey, onClearApiKey, onScanCom
         <div className="scanning-loader-container">
           <div className="loading-spinner"></div>
           
-          <h3 className="italic-serif" style={{ fontSize: "20px", marginBottom: "6px", color: "var(--text-main)" }}>AI Biometrics Core</h3>
-          <p style={{ color: "var(--text-sub)", fontSize: "12px", marginBottom: "24px" }}>Analyzing plant organic matrices...</p>
+          <h3 className="italic-serif" style={{ fontSize: "22px", marginBottom: "6px", color: "var(--text-main)" }}>AI Biometrics Core</h3>
+          <p style={{ color: "var(--text-sub)", fontSize: "14px", marginBottom: "24px" }}>Analyzing plant organic matrices...</p>
 
           <div className="scan-progress-timeline">
             <div className={`scan-progress-step ${scanStep === 0 ? "active" : scanStep > 0 ? "completed" : ""}`}>
@@ -341,7 +341,7 @@ export default function Scanner({ apiKey, onSaveApiKey, onClearApiKey, onScanCom
               alignItems: "center",
               gap: "8px",
               color: "var(--secondary)",
-              fontSize: "11px",
+              fontSize: "13px",
               fontWeight: "600",
               whiteSpace: "nowrap",
               boxShadow: "0 6px 20px rgba(0,0,0,0.3)"
@@ -375,7 +375,7 @@ export default function Scanner({ apiKey, onSaveApiKey, onClearApiKey, onScanCom
               gap: "8px",
               color: "var(--gold)",
               cursor: "pointer",
-              fontSize: "11.5px",
+              fontSize: "13px",
               fontWeight: "600",
               whiteSpace: "nowrap",
               boxShadow: "0 6px 20px rgba(0,0,0,0.3)",
@@ -400,10 +400,10 @@ export default function Scanner({ apiKey, onSaveApiKey, onClearApiKey, onScanCom
               <div className="scanner-corner br"></div>
               <div className="scanner-beam"></div>
               
-              <div style={{ position: "absolute", top: "16px", left: "16px", fontSize: "9px", fontFamily: "monospace", opacity: 0.6, letterSpacing: "1px", color: "white" }}>
+              <div style={{ position: "absolute", top: "16px", left: "16px", fontSize: "11px", fontFamily: "monospace", opacity: 0.6, letterSpacing: "1px", color: "white" }}>
                 REC [AUTO]
               </div>
-              <div style={{ position: "absolute", bottom: "16px", right: "16px", fontSize: "9px", fontFamily: "monospace", opacity: 0.6, color: "white" }}>
+              <div style={{ position: "absolute", bottom: "16px", right: "16px", fontSize: "11px", fontFamily: "monospace", opacity: 0.6, color: "white" }}>
                 FOCAL: DYNAMIC
               </div>
             </div>
@@ -438,8 +438,8 @@ export default function Scanner({ apiKey, onSaveApiKey, onClearApiKey, onScanCom
               <Upload size={32} style={{ margin: "auto", color: "var(--primary)" }} />
             </div>
             <div>
-              <h3 className="italic-serif" style={{ marginBottom: "6px", color: "white", fontSize: "22px" }}>Import Foliage Imagery</h3>
-              <p style={{ fontSize: "12px", maxWidth: "280px", margin: "auto", color: "rgba(255,255,255,0.55)", lineHeight: "1.5" }}>
+              <h3 className="italic-serif" style={{ marginBottom: "6px", color: "white", fontSize: "24px" }}>Import Foliage Imagery</h3>
+              <p style={{ fontSize: "14px", maxWidth: "280px", margin: "auto", color: "rgba(255,255,255,0.55)", lineHeight: "1.5" }}>
                 Live camera access is restricted or unavailable. Drag and drop or browse a photo file to run diagnosis.
               </p>
             </div>
@@ -450,7 +450,7 @@ export default function Scanner({ apiKey, onSaveApiKey, onClearApiKey, onScanCom
                   className="primary-btn" 
                   style={{ 
                     padding: "12px 20px", 
-                    fontSize: "13px", 
+                    fontSize: "15px", 
                     borderRadius: "99px", 
                     display: "flex", 
                     alignItems: "center", 
@@ -466,7 +466,7 @@ export default function Scanner({ apiKey, onSaveApiKey, onClearApiKey, onScanCom
                   Retry Camera
                 </button>
 
-                <label className="secondary-btn" style={{ padding: "12px 20px", fontSize: "13px", cursor: "pointer", background: "rgba(255,255,255,0.06)", color: "white", border: "1px solid rgba(255,255,255,0.15)", borderRadius: "99px", display: "flex", alignItems: "center", gap: "8px" }}>
+                <label className="secondary-btn" style={{ padding: "12px 20px", fontSize: "15px", cursor: "pointer", background: "rgba(255,255,255,0.06)", color: "white", border: "1px solid rgba(255,255,255,0.15)", borderRadius: "99px", display: "flex", alignItems: "center", gap: "8px" }}>
                   <Upload size={16} />
                   Browse Media
                   <input type="file" accept="image/*" onChange={handleFileChange} style={{ display: "none" }} />
@@ -483,7 +483,7 @@ export default function Scanner({ apiKey, onSaveApiKey, onClearApiKey, onScanCom
                     background: "none", 
                     border: "none", 
                     color: "var(--gold)", 
-                    fontSize: "12px", 
+                    fontSize: "14px", 
                     textDecoration: "underline", 
                     cursor: "pointer", 
                     fontWeight: "600",
@@ -502,7 +502,7 @@ export default function Scanner({ apiKey, onSaveApiKey, onClearApiKey, onScanCom
         {errorMsg && (
           <div className="glass-card" style={{ position: "absolute", top: "20px", left: "20px", right: "20px", background: "rgba(214, 123, 123, 0.95)", display: "flex", gap: "10px", padding: "12px 16px", zIndex: 100, border: "none" }}>
             <AlertCircle size={20} style={{ flexShrink: 0, color: "white" }} />
-            <p style={{ color: "white", fontSize: "11px", lineHeight: "1.4" }}>{errorMsg}</p>
+            <p style={{ color: "white", fontSize: "13px", lineHeight: "1.4" }}>{errorMsg}</p>
           </div>
         )}
       </div>
@@ -531,7 +531,7 @@ export default function Scanner({ apiKey, onSaveApiKey, onClearApiKey, onScanCom
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "14px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
               <ShieldAlert size={16} style={{ color: "var(--gold)" }} />
-              <span style={{ fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.8px", color: "var(--text-sub)" }}>
+              <span style={{ fontSize: "13px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.8px", color: "var(--text-sub)" }}>
                 Scanner Options Panel
               </span>
             </div>
@@ -541,7 +541,7 @@ export default function Scanner({ apiKey, onSaveApiKey, onClearApiKey, onScanCom
                 background: "none",
                 border: "none",
                 color: "var(--text-muted)",
-                fontSize: "11px",
+                fontSize: "13px",
                 fontWeight: "600",
                 cursor: "pointer"
               }}
@@ -558,7 +558,7 @@ export default function Scanner({ apiKey, onSaveApiKey, onClearApiKey, onScanCom
                 background: "none",
                 border: "none",
                 color: sandboxTab === "scenarios" ? "var(--text-main)" : "var(--text-muted)",
-                fontSize: "12px",
+                fontSize: "14px",
                 fontWeight: "700",
                 cursor: "pointer",
                 position: "relative",
@@ -575,7 +575,7 @@ export default function Scanner({ apiKey, onSaveApiKey, onClearApiKey, onScanCom
                 background: "none",
                 border: "none",
                 color: sandboxTab === "key" ? "var(--text-main)" : "var(--text-muted)",
-                fontSize: "12px",
+                fontSize: "14px",
                 fontWeight: "700",
                 cursor: "pointer",
                 position: "relative",
@@ -593,7 +593,7 @@ export default function Scanner({ apiKey, onSaveApiKey, onClearApiKey, onScanCom
             <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
               {/* Plant selection */}
               <div>
-                <label style={{ fontSize: "10px", color: "var(--text-sub)", fontWeight: "600", display: "block", marginBottom: "6px", textTransform: "uppercase", letterSpacing: "0.2px" }}>Select Demo Species</label>
+                <label style={{ fontSize: "12px", color: "var(--text-sub)", fontWeight: "600", display: "block", marginBottom: "6px", textTransform: "uppercase", letterSpacing: "0.2px" }}>Select Demo Species</label>
                 <select 
                   value={selectedDemoPlant}
                   onChange={(e) => {
@@ -612,7 +612,7 @@ export default function Scanner({ apiKey, onSaveApiKey, onClearApiKey, onScanCom
 
               {/* Condition selection */}
               <div>
-                <label style={{ fontSize: "10px", color: "var(--text-sub)", fontWeight: "600", display: "block", marginBottom: "6px", textTransform: "uppercase", letterSpacing: "0.2px" }}>Select Health Scenario</label>
+                <label style={{ fontSize: "12px", color: "var(--text-sub)", fontWeight: "600", display: "block", marginBottom: "6px", textTransform: "uppercase", letterSpacing: "0.2px" }}>Select Health Scenario</label>
                 <select 
                   value={selectedDemoCondition}
                   onChange={(e) => setSelectedDemoCondition(e.target.value)}
@@ -636,7 +636,7 @@ export default function Scanner({ apiKey, onSaveApiKey, onClearApiKey, onScanCom
             </div>
           ) : (
             <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-              <p style={{ fontSize: "11.5px", color: "var(--text-sub)", lineHeight: "1.5", marginBottom: "4px" }}>
+              <p style={{ fontSize: "13px", color: "var(--text-sub)", lineHeight: "1.5", marginBottom: "4px" }}>
                 Unlock high-fidelity diagnosis using live Google Gemini AI. Enter your API key below. It remains secure inside your browser's private storage.
               </p>
               
@@ -655,7 +655,7 @@ export default function Scanner({ apiKey, onSaveApiKey, onClearApiKey, onScanCom
                       borderRadius: "99px",
                       padding: "10px 16px 10px 36px",
                       color: "var(--text-main)",
-                      fontSize: "12.5px",
+                      fontSize: "15px",
                       outline: "none",
                       fontFamily: "monospace",
                       transition: "border var(--t-fast)"
@@ -671,7 +671,7 @@ export default function Scanner({ apiKey, onSaveApiKey, onClearApiKey, onScanCom
                     }
                   }}
                   className="primary-btn"
-                  style={{ padding: "10px 16px", fontSize: "12px" }}
+                  style={{ padding: "10px 16px", fontSize: "14px" }}
                 >
                   Save
                 </button>
@@ -680,7 +680,7 @@ export default function Scanner({ apiKey, onSaveApiKey, onClearApiKey, onScanCom
                 href="https://aistudio.google.com/" 
                 target="_blank" 
                 rel="noreferrer" 
-                style={{ fontSize: "11px", color: "var(--text-muted)", textDecoration: "underline", alignSelf: "flex-start", marginTop: "2px" }}
+                style={{ fontSize: "13px", color: "var(--text-muted)", textDecoration: "underline", alignSelf: "flex-start", marginTop: "2px" }}
               >
                 Get a free API Key from Google AI Studio ↗
               </a>
@@ -693,10 +693,10 @@ export default function Scanner({ apiKey, onSaveApiKey, onClearApiKey, onScanCom
       {selectedFile && !scanning && (
         <div className="simulation-selector" style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
           <div>
-            <h4 className="italic-serif" style={{ fontSize: "18px", marginBottom: "4px", color: "var(--text-main)" }}>
+            <h4 className="italic-serif" style={{ fontSize: "20px", marginBottom: "4px", color: "var(--text-main)" }}>
               {apiKey ? "Foliage Image Cached" : "Foliage Image Cached (Simulation)"}
             </h4>
-            <p style={{ fontSize: "11.5px", color: "var(--text-sub)", lineHeight: "1.5" }}>
+            <p style={{ fontSize: "13px", color: "var(--text-sub)", lineHeight: "1.5" }}>
               {apiKey 
                 ? "Perfect alignment achieved. Your image is ready for deep neural analysis via Gemini 1.5 Flash."
                 : "No API Key Connected — Simulated Analysis Active. We will simulate a scientific diagnostic scan on your custom image."}
@@ -721,7 +721,7 @@ export default function Scanner({ apiKey, onSaveApiKey, onClearApiKey, onScanCom
                           borderRadius: "99px",
                           padding: "8px 12px 8px 30px",
                           color: "var(--text-main)",
-                          fontSize: "11.5px",
+                          fontSize: "13px",
                           outline: "none",
                           fontFamily: "monospace"
                         }}
@@ -736,13 +736,13 @@ export default function Scanner({ apiKey, onSaveApiKey, onClearApiKey, onScanCom
                         }
                       }}
                       className="primary-btn"
-                      style={{ padding: "8px 14px", fontSize: "11.5px" }}
+                      style={{ padding: "8px 14px", fontSize: "13px" }}
                     >
                       Save
                     </button>
                     <button 
                       onClick={() => setShowKeyInputInline(false)}
-                      style={{ background: "none", border: "none", color: "var(--text-muted)", fontSize: "11.5px", cursor: "pointer", marginLeft: "4px" }}
+                      style={{ background: "none", border: "none", color: "var(--text-muted)", fontSize: "13px", cursor: "pointer", marginLeft: "4px" }}
                     >
                       Cancel
                     </button>
@@ -754,7 +754,7 @@ export default function Scanner({ apiKey, onSaveApiKey, onClearApiKey, onScanCom
                       background: "none",
                       border: "none",
                       color: "var(--secondary)",
-                      fontSize: "11.5px",
+                      fontSize: "13px",
                       textDecoration: "underline",
                       cursor: "pointer",
                       padding: 0,
@@ -772,10 +772,10 @@ export default function Scanner({ apiKey, onSaveApiKey, onClearApiKey, onScanCom
           </div>
           
           <div style={{ display: "flex", gap: "10px", marginTop: "4px" }}>
-            <button className="secondary-btn" onClick={resetScanner} style={{ flex: 1, padding: "12px", fontSize: "13px", borderRadius: "99px" }}>
+            <button className="secondary-btn" onClick={resetScanner} style={{ flex: 1, padding: "12px", fontSize: "15px", borderRadius: "99px" }}>
               Retake
             </button>
-            <button className="primary-btn" onClick={handleScanSubmit} style={{ flex: 2, padding: "12px", fontSize: "13px", borderRadius: "99px", display: "flex", justifyContent: "center", alignItems: "center", gap: "8px" }}>
+            <button className="primary-btn" onClick={handleScanSubmit} style={{ flex: 2, padding: "12px", fontSize: "15px", borderRadius: "99px", display: "flex", justifyContent: "center", alignItems: "center", gap: "8px" }}>
               <Play size={14} fill="currentColor" />
               {apiKey ? "Run AI Analysis" : "Simulate AI Scan"}
             </button>

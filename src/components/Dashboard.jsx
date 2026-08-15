@@ -59,8 +59,8 @@ export default function Dashboard({ savedPlants, onSelectPlant, onNavigateToScan
             />
           </div>
           <div>
-            <p style={{ fontSize: "10px", color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "2px", fontWeight: "700", fontFamily: "var(--font-body)", margin: 0 }}>petal & parchment</p>
-            <h2 style={{ fontSize: "22px", marginTop: "2px", fontFamily: "var(--font-header)", fontWeight: "400", margin: 0, lineHeight: "1.2", color: "var(--text-main)" }}>
+            <p style={{ fontSize: "12px", color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "2px", fontWeight: "700", fontFamily: "var(--font-body)", margin: 0 }}>petal & parchment</p>
+            <h2 style={{ fontSize: "24px", marginTop: "2px", fontFamily: "var(--font-header)", fontWeight: "400", margin: 0, lineHeight: "1.2", color: "var(--text-main)" }}>
               your cozy <span className="italic-serif">conservatory</span> ✨
             </h2>
           </div>
@@ -80,7 +80,7 @@ export default function Dashboard({ savedPlants, onSelectPlant, onNavigateToScan
             alignItems: "center",
             cursor: "pointer",
             boxShadow: "var(--shadow-sm)",
-            fontSize: "18px",
+            fontSize: "20px",
             transition: "all var(--t-fast)",
             outline: "none",
             flexShrink: 0
@@ -108,8 +108,8 @@ export default function Dashboard({ savedPlants, onSelectPlant, onNavigateToScan
             <Sparkles size={18} />
           </div>
           <div>
-            <h4 style={{ fontSize: "14px", fontWeight: "700", color: "var(--text-main)", marginBottom: "3px" }}>Botanist's Tip of the Day</h4>
-            <p style={{ fontSize: "12.5px", lineHeight: "1.45", color: "var(--text-sub)" }}>
+            <h4 style={{ fontSize: "16px", fontWeight: "700", color: "var(--text-main)", marginBottom: "3px" }}>Botanist's Tip of the Day</h4>
+            <p style={{ fontSize: "15px", lineHeight: "1.45", color: "var(--text-sub)" }}>
               "Always check soil moisture 2 inches deep before watering. Plants adapt to root drought far better than root drowning!"
             </p>
           </div>
@@ -132,20 +132,20 @@ export default function Dashboard({ savedPlants, onSelectPlant, onNavigateToScan
           }}
         >
           <div style={{ flex: 1, paddingRight: "14px" }}>
-            <p style={{ fontSize: "10px", color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "1.5px", fontWeight: "700", marginBottom: "4px" }}>Sanctuary Vitality</p>
-            <h3 style={{ fontSize: "20px", fontFamily: "var(--font-header)", color: "var(--text-main)", marginBottom: "4px" }}>
+            <p style={{ fontSize: "12px", color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "1.5px", fontWeight: "700", marginBottom: "4px" }}>Sanctuary Vitality</p>
+            <h3 style={{ fontSize: "22px", fontFamily: "var(--font-header)", color: "var(--text-main)", marginBottom: "4px" }}>
               {getGardenStatusText(averageHealth)}
             </h3>
-            <p style={{ fontSize: "12px", color: "var(--text-sub)", lineHeight: "1.4" }}>
+            <p style={{ fontSize: "14px", color: "var(--text-sub)", lineHeight: "1.4" }}>
               Average health rating is <strong style={{ color: "var(--primary)" }}>{averageHealth}%</strong>. Keep up the great care!
             </p>
             
             {/* Quick Micro-Badge Indicators */}
             <div style={{ display: "flex", gap: "8px", marginTop: "12px", flexWrap: "wrap" }}>
-              <span style={{ fontSize: "9.5px", fontWeight: "700", padding: "3px 8px", borderRadius: "99px", background: "rgba(197, 180, 165, 0.1)", color: "var(--text-main)", border: "1px solid rgba(197, 180, 165, 0.15)" }}>
+              <span style={{ fontSize: "11px", fontWeight: "700", padding: "3px 8px", borderRadius: "99px", background: "rgba(197, 180, 165, 0.1)", color: "var(--text-main)", border: "1px solid rgba(197, 180, 165, 0.15)" }}>
                 🌿 {savedPlants.length} Plants
               </span>
-              <span style={{ fontSize: "9.5px", fontWeight: "700", padding: "3px 8px", borderRadius: "99px", background: "rgba(249, 195, 195, 0.12)", color: "#8a3f3f", border: "1px solid rgba(249, 195, 195, 0.2)" }}>
+              <span style={{ fontSize: "11px", fontWeight: "700", padding: "3px 8px", borderRadius: "99px", background: "rgba(249, 195, 195, 0.12)", color: "#8a3f3f", border: "1px solid rgba(249, 195, 195, 0.2)" }}>
                 ✨ Sprout Guardian
               </span>
             </div>
@@ -179,8 +179,8 @@ export default function Dashboard({ savedPlants, onSelectPlant, onNavigateToScan
                 alignItems: "center"
               }}
             >
-              <span style={{ fontSize: "14px", fontWeight: "700", color: "var(--text-main)", letterSpacing: "-0.5px" }}>{averageHealth}%</span>
-              <span style={{ fontSize: "8px", fontWeight: "600", color: "var(--text-muted)", textTransform: "uppercase" }}>Index</span>
+              <span style={{ fontSize: "16px", fontWeight: "700", color: "var(--text-main)", letterSpacing: "-0.5px" }}>{averageHealth}%</span>
+              <span style={{ fontSize: "11px", fontWeight: "600", color: "var(--text-muted)", textTransform: "uppercase" }}>Index</span>
             </div>
           </div>
         </div>
@@ -189,11 +189,11 @@ export default function Dashboard({ savedPlants, onSelectPlant, onNavigateToScan
       {/* "My Garden" Section */}
       <div style={{ marginBottom: "26px" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "14px" }}>
-          <h3 style={{ fontSize: "18px", fontWeight: "700" }}>My Garden ({savedPlants.length})</h3>
+          <h3 style={{ fontSize: "20px", fontWeight: "700" }}>My Garden ({savedPlants.length})</h3>
           {savedPlants.length > 0 && (
             <button 
               onClick={onNavigateToScan}
-              style={{ background: "none", border: "none", color: "var(--primary)", fontSize: "12.5px", fontWeight: "700", cursor: "pointer", display: "flex", alignItems: "center", gap: "2px" }}
+              style={{ background: "none", border: "none", color: "var(--primary)", fontSize: "15px", fontWeight: "700", cursor: "pointer", display: "flex", alignItems: "center", gap: "2px" }}
             >
               Add Plant <Plus size={14} />
             </button>
@@ -227,10 +227,10 @@ export default function Dashboard({ savedPlants, onSelectPlant, onNavigateToScan
               }}>
                 <Compass size={24} style={{ color: "var(--text-sub)" }} />
               </div>
-              <h4 className="italic-serif" style={{ fontSize: "20px", fontWeight: "400", marginBottom: "6px", color: "var(--text-main)" }}>
+              <h4 className="italic-serif" style={{ fontSize: "22px", fontWeight: "400", marginBottom: "6px", color: "var(--text-main)" }}>
                 begin your nurture ritual ✨
               </h4>
-              <p style={{ fontSize: "12.5px", color: "var(--text-sub)", maxWidth: "290px", margin: "0 auto", lineHeight: "1.5", fontFamily: "var(--font-body)" }}>
+              <p style={{ fontSize: "15px", color: "var(--text-sub)", maxWidth: "290px", margin: "0 auto", lineHeight: "1.5", fontFamily: "var(--font-body)" }}>
                 Complete these initial steps to activate your digital greenhouse journal and begin cultivating your sanctuary.
               </p>
             </div>
@@ -259,7 +259,7 @@ export default function Dashboard({ savedPlants, onSelectPlant, onNavigateToScan
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  fontSize: "11px",
+                  fontSize: "13px",
                   fontWeight: "700",
                   flexShrink: 0,
                   marginTop: "2px"
@@ -268,14 +268,14 @@ export default function Dashboard({ savedPlants, onSelectPlant, onNavigateToScan
                 </div>
                 <div style={{ flex: 1 }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                    <h5 style={{ fontSize: "13px", fontWeight: "700", color: "var(--text-main)" }}>
+                    <h5 style={{ fontSize: "15px", fontWeight: "700", color: "var(--text-main)" }}>
                       Configure Gemini AI Core
                     </h5>
-                    <span style={{ fontSize: "8.5px", fontWeight: "700", padding: "3px 8px", borderRadius: "99px", background: apiKey ? "var(--green)" : "rgba(244, 227, 193, 0.4)", color: "var(--text-main)", letterSpacing: "0.2px" }}>
+                    <span style={{ fontSize: "11px", fontWeight: "700", padding: "3px 8px", borderRadius: "99px", background: apiKey ? "var(--green)" : "rgba(244, 227, 193, 0.4)", color: "var(--text-main)", letterSpacing: "0.2px" }}>
                       {apiKey ? "CONNECTED" : "RECOMMENDED"}
                     </span>
                   </div>
-                  <p style={{ fontSize: "11.5px", color: "var(--text-sub)", marginTop: "4px", lineHeight: "1.45" }}>
+                  <p style={{ fontSize: "13px", color: "var(--text-sub)", marginTop: "4px", lineHeight: "1.45" }}>
                     Input your secure Gemini API key in settings to enable live, high-fidelity disease diagnosis on custom image uploads.
                   </p>
                   {!apiKey && onNavigateToSettings && (
@@ -285,7 +285,7 @@ export default function Dashboard({ savedPlants, onSelectPlant, onNavigateToScan
                         background: "none", 
                         border: "none", 
                         color: "var(--text-sub)", 
-                        fontSize: "11px", 
+                        fontSize: "13px", 
                         fontWeight: "700", 
                         cursor: "pointer", 
                         padding: "0", 
@@ -320,7 +320,7 @@ export default function Dashboard({ savedPlants, onSelectPlant, onNavigateToScan
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  fontSize: "11px",
+                  fontSize: "13px",
                   fontWeight: "700",
                   flexShrink: 0,
                   marginTop: "2px"
@@ -328,10 +328,10 @@ export default function Dashboard({ savedPlants, onSelectPlant, onNavigateToScan
                   2
                 </div>
                 <div style={{ flex: 1 }}>
-                  <h5 style={{ fontSize: "13px", fontWeight: "700", color: "var(--text-main)" }}>
+                  <h5 style={{ fontSize: "15px", fontWeight: "700", color: "var(--text-main)" }}>
                     Add Your First Plant
                   </h5>
-                  <p style={{ fontSize: "11.5px", color: "var(--text-sub)", marginTop: "4px", lineHeight: "1.45" }}>
+                  <p style={{ fontSize: "13px", color: "var(--text-sub)", marginTop: "4px", lineHeight: "1.45" }}>
                     Open the camera to scan a foliage specimen, or seed your digital conservatory instantly using our pre-baked developer plants.
                   </p>
                   {onNavigateToSettings && (
@@ -341,7 +341,7 @@ export default function Dashboard({ savedPlants, onSelectPlant, onNavigateToScan
                         background: "none", 
                         border: "none", 
                         color: "var(--text-sub)", 
-                        fontSize: "11px", 
+                        fontSize: "13px", 
                         fontWeight: "700", 
                         cursor: "pointer", 
                         padding: "0", 
@@ -391,7 +391,7 @@ export default function Dashboard({ savedPlants, onSelectPlant, onNavigateToScan
                   border: "1px solid var(--border-glass)",
                   borderRadius: "99px",
                   padding: "2px 8px",
-                  fontSize: "9px",
+                  fontSize: "11px",
                   fontWeight: "700",
                   color: plant.healthScore > 85 
                     ? (theme === "dark" ? "var(--primary)" : "#385e49") 
@@ -440,7 +440,7 @@ export default function Dashboard({ savedPlants, onSelectPlant, onNavigateToScan
                 <div style={{ marginBottom: "10px" }}>
                   <h4 style={{ 
                     fontFamily: "var(--font-header)", 
-                    fontSize: "15px", 
+                    fontSize: "18px", 
                     fontWeight: "700", 
                     overflow: "hidden", 
                     textOverflow: "ellipsis", 
@@ -451,7 +451,7 @@ export default function Dashboard({ savedPlants, onSelectPlant, onNavigateToScan
                     {plant.plantName}
                   </h4>
                   <p style={{ 
-                    fontSize: "10.5px", 
+                    fontSize: "12px", 
                     fontStyle: "italic", 
                     overflow: "hidden", 
                     textOverflow: "ellipsis", 
@@ -465,7 +465,7 @@ export default function Dashboard({ savedPlants, onSelectPlant, onNavigateToScan
                 </div>
 
                 {/* Symmetrical soft capsule status tag */}
-                <div className={`status-pill ${getSeverityStyle(plant.severity)}`} style={{ padding: "4px 10px", fontSize: "8.5px", fontWeight: "700" }}>
+                <div className={`status-pill ${getSeverityStyle(plant.severity)}`} style={{ padding: "4px 10px", fontSize: "11px", fontWeight: "700" }}>
                   {plant.severity === "healthy" ? "PERFECTLY" : plant.severity === "warning" ? "ATTENTION" : "CRITICAL"}
                 </div>
               </div>
@@ -476,7 +476,7 @@ export default function Dashboard({ savedPlants, onSelectPlant, onNavigateToScan
 
       {/* Daily care tasks panel */}
       <div style={{ marginBottom: "10px" }}>
-        <h3 style={{ fontSize: "18px", fontWeight: "700", marginBottom: "12px" }}>Daily Care Schedule</h3>
+        <h3 style={{ fontSize: "20px", fontWeight: "700", marginBottom: "12px" }}>Daily Care Schedule</h3>
         <div className="todo-list">
           {tasks.map(task => (
             <div 
@@ -498,10 +498,10 @@ export default function Dashboard({ savedPlants, onSelectPlant, onNavigateToScan
             >
               <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                 <div className={`todo-checkbox ${task.done ? "checked" : ""}`}>
-                  {task.done && <span style={{ fontSize: "10px", fontWeight: "900" }}>✓</span>}
+                  {task.done && <span style={{ fontSize: "12px", fontWeight: "900" }}>✓</span>}
                 </div>
                 <span style={{ 
-                  fontSize: "13.5px", 
+                  fontSize: "16px", 
                   fontWeight: "500",
                   textDecoration: task.done ? "line-through" : "none", 
                   color: task.done ? "var(--text-muted)" : "var(--text-main)" 

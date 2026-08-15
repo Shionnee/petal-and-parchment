@@ -30,7 +30,7 @@ export default function CareTasks() {
     <div className="screen-container">
       {/* Header section styled with Cormorant Garamond typography */}
       <p style={{ 
-        fontSize: "10.5px", 
+        fontSize: "12px", 
         color: "var(--primary)", 
         textTransform: "uppercase", 
         letterSpacing: "1.8px", 
@@ -41,10 +41,10 @@ export default function CareTasks() {
       }}>
         Sanctuary Planner
       </p>
-      <h2 className="italic-serif" style={{ fontSize: "28px", lineHeight: "1.15", marginBottom: "6px", color: "var(--text-main)" }}>
+      <h2 className="italic-serif" style={{ fontSize: "32px", lineHeight: "1.15", marginBottom: "6px", color: "var(--text-main)" }}>
         Care Schedule
       </h2>
-      <p style={{ fontSize: "13px", color: "var(--text-sub)", marginBottom: "22px", fontStyle: "italic" }}>
+      <p style={{ fontSize: "15px", color: "var(--text-sub)", marginBottom: "22px", fontStyle: "italic" }}>
         Nurture your garden with daily botanical rituals.
       </p>
 
@@ -52,10 +52,10 @@ export default function CareTasks() {
       <div className="glass-card" style={{ marginBottom: "24px", display: "flex", flexDirection: "column", gap: "12px", background: "var(--bg-card)" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <div>
-            <h4 style={{ fontSize: "14px", fontWeight: "600", color: "var(--text-main)" }}>Today's Rituals Completed</h4>
-            <p style={{ fontSize: "11.5px", color: "var(--text-muted)", marginTop: "2px" }}>{completedCount} of {tasks.length} tasks done</p>
+            <h4 style={{ fontSize: "16px", fontWeight: "600", color: "var(--text-main)" }}>Today's Rituals Completed</h4>
+            <p style={{ fontSize: "13px", color: "var(--text-muted)", marginTop: "2px" }}>{completedCount} of {tasks.length} tasks done</p>
           </div>
-          <div style={{ fontSize: "20px", fontWeight: "700", color: "var(--secondary)" }}>
+          <div style={{ fontSize: "22px", fontWeight: "700", color: "var(--secondary)" }}>
             {progressPercent}%
           </div>
         </div>
@@ -93,7 +93,7 @@ export default function CareTasks() {
 
         {/* Notebook Header */}
         <h3 className="italic-serif" style={{ 
-          fontSize: "20px", 
+          fontSize: "22px", 
           marginBottom: "16px", 
           color: "var(--text-main)", 
           paddingLeft: "36px",
@@ -144,11 +144,11 @@ export default function CareTasks() {
                     zIndex: 3
                   }}
                 >
-                  {task.done && <span style={{ fontSize: "8px", fontWeight: "900", color: "white" }}>✓</span>}
+                  {task.done && <span style={{ fontSize: "11px", fontWeight: "900", color: "white" }}>✓</span>}
                 </div>
                 <div>
                   <span style={{ 
-                    fontSize: "13.5px", 
+                    fontSize: "16px", 
                     textDecoration: task.done ? "line-through" : "none", 
                     color: task.done ? "var(--text-muted)" : "var(--text-main)",
                     fontWeight: "600",
@@ -159,7 +159,7 @@ export default function CareTasks() {
                     {task.action}
                   </span>
                   <span style={{ 
-                    fontSize: "11px", 
+                    fontSize: "13px", 
                     color: "var(--text-muted)",
                     fontFamily: "var(--font-body)",
                     display: "block",
@@ -181,8 +181,8 @@ export default function CareTasks() {
       {progressPercent === 100 && (
         <div className="glass-card" style={{ marginTop: "10px", textAlign: "center", background: "rgba(249, 195, 195, 0.08)", borderColor: "var(--border-glow)" }}>
           <Award size={24} style={{ color: "var(--secondary)", margin: "0 auto 8px auto" }} />
-          <h4 className="italic-serif" style={{ color: "var(--text-main)", fontSize: "16px" }}>All Rituals Complete!</h4>
-          <p style={{ fontSize: "12px", marginTop: "4px", color: "var(--text-sub)" }}>Your forest sanctuary is glowing with vibrant health today.</p>
+          <h4 className="italic-serif" style={{ color: "var(--text-main)", fontSize: "18px" }}>All Rituals Complete!</h4>
+          <p style={{ fontSize: "14px", marginTop: "4px", color: "var(--text-sub)" }}>Your forest sanctuary is glowing with vibrant health today.</p>
         </div>
       )}
     </div>
